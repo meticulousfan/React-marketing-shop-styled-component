@@ -1,17 +1,28 @@
 import styled from 'styled-components';
-import { primaryColor } from '../../config/colors';
+import * as colors from '../../config/colors';
 
 export const Nav = styled.nav`
-    background: ${primaryColor};
-    padding: 20px;
+    background: #fff;
+    padding: 10px 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     color: #000000;
 
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     a {
-        color: #fff;
-        margin: 0 10px 0 0;
+        color: ${colors.primaryColor};
+        margin: 0 20px 0 0;
         font-weight: bold;
+    }
+
+    img {
+        width: 200px;
+        height: 50px;
     }
 `;

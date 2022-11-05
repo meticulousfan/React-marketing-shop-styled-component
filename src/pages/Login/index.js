@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useDispatch, useSelector } from 'react-redux';
 import { get } from 'lodash';
+import { Link } from 'react-router-dom';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form, Title } from './styled';
@@ -65,6 +66,12 @@ export default function Login(props) {
                     />
                 </label>
                 <button type="submit">Login</button>
+                <p>
+                    Não tem uma conta?{' '}
+                    <Link to="/register">
+                        <strong>Cadastre-se</strong>
+                    </Link>
+                </p>
             </Form>
         </Container>
     );

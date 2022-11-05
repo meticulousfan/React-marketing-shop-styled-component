@@ -24,6 +24,11 @@ export const Form = styled.form`
             border: 1px solid ${colors.primaryColor};
         }
     }
+
+    p {
+        text-align: center;
+        padding-top: 30px;
+    }
 `;
 
 export const Title = styled.h1`
