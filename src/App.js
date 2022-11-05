@@ -11,6 +11,7 @@ import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                 <MainRoutes />
                 <GlobalStyles />
                 <ToastContainer autoClose={3000} className="toast-container" />
+                <Footer />
             </PersistGate>
         </Provider>
     );
