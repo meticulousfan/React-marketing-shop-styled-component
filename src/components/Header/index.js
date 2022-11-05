@@ -1,47 +1,45 @@
 import React from 'react';
-import {
-    FaHome,
-    FaSignInAlt,
-    FaUserAlt,
-    FaCircle,
-    FaPowerOff,
-} from 'react-icons/fa';
+import { FaRegUser } from 'react-icons/fa';
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
+import { AiOutlineHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../store/modules/auth/actions';
-import history from '../../services/history';
+import { useSelector } from 'react-redux';
+
+import Logo from '../../assets/Logo.png';
 
 import { Nav } from './styled';
+import NavDropdown from './Dropdown';
 
 export default function Header() {
-    const dispatch = useDispatch();
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
-    function handleLogout(e) {
-        e.preventDefault();
-        dispatch(actions.LoginFailure());
-        history.push('/');
-    }
 
     return (
         <Nav>
             <Link to="/">
-                <FaHome size={24} />
+                <img src={Logo} />
             </Link>
-            <Link to="/register">
-                <FaSignInAlt size={24} />
-            </Link>
-            {isLoggedIn ? (
-                <Link onClick={handleLogout} to="/">
-                    <FaPowerOff size={24} />
-                </Link>
-            ) : (
-                <Link to="/login">
-                    <FaUserAlt size={24} />
-                </Link>
-            )}
-
-            {isLoggedIn && <FaCircle size={24} color="#66ff22" />}
+            <div>
+                <Link to="/feminino">Feminino</Link>
+                <Link to="/masculino">Masculino</Link>
+            </div>
+            <div>
+                <Link to="/loja">Venda Conosco</Link>
+                <div>
+                    <Link to="/favoritos">
+                        <AiOutlineHeart size={24} />
+                    </Link>
+                    <Link to="/carrinho">
+                        <MdOutlineAddShoppingCart size={24} />
+                    </Link>
+                    {isLoggedIn ? (
+                        <NavDropdown size={24} />
+                    ) : (
+                        <Link to="/login">
+                            <FaRegUser size={24} />
+                        </Link>
+                    )}
+                </div>
+            </div>
         </Nav>
     );
 }

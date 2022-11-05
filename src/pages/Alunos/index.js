@@ -23,7 +23,7 @@ export default function Alunos() {
 
     useEffect(() => {
         async function getData() {
-            setIsLoading(true);
+            // setIsLoading(true);
             const response = await axios.get('/alunos');
             setAlunos(response.data);
             setIsLoading(false);
@@ -45,7 +45,7 @@ export default function Alunos() {
 
     async function handleDelete(e, id, index) {
         try {
-            setIsLoading(true);
+            // setIsLoading(true);
             await axios.delete(`/alunos/${id}`);
             const novosAlunos = [...alunos];
             novosAlunos.splice(index, 1);

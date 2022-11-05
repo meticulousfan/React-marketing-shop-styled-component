@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Form, Title } from './styled';
@@ -90,6 +91,12 @@ export default function Register() {
                 <button type="submit">
                     {id ? 'Salvar' : 'Criar minha conta'}
                 </button>
+                <p>
+                    Já tem uma conta?{' '}
+                    <Link to="/login">
+                        <strong>Faça login</strong>
+                    </Link>
+                </p>
             </Form>
         </Container>
     );
