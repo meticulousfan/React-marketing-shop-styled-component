@@ -5,19 +5,21 @@ import { Route, Routes } from 'react-router-dom';
 
 import Page404 from '../pages/Page404';
 import Login from '../pages/Login';
-import Aluno from '../pages/Aluno';
-import Alunos from '../pages/Alunos';
-import Fotos from '../pages/Fotos';
 import Register from '../pages/Register';
+import Produtos from '../pages/Produtos';
+import Masculina from '../pages/Masculina';
+import Feminina from '../pages/Feminina';
 
 export default function MainRoutes() {
     return (
         <Routes>
-            <Route path={'/'} element={<Alunos />} isClosed={false} />
-            <Route path={'/aluno/:id/edit'} element={<Aluno />} isClosed />
-            <Route path={'/aluno/:id/delete'} element={<Aluno />} isClosed />
-            <Route path={'/aluno/'} element={<Aluno />} isClosed />
-            <Route path={'/fotos/:id'} element={<Fotos />} isClosed />
+            <Route path={'/'} element={<Produtos />} isClosed={false} />
+            <Route
+                path={'/masculina'}
+                element={<Masculina />}
+                isClosed={false}
+            />
+            <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route
                 path={'/register/'}
                 element={<Register />}

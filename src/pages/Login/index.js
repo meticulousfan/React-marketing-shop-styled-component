@@ -29,11 +29,11 @@ export default function Login(props) {
 
             toast.error('Email inválido.');
         }
-        if (password.length < 6 || password.length > 50) {
-            formErrors = true;
+        // if (password.length < 6 || password.length > 50) {
+        //     formErrors = true;
 
-            toast.error('Senha inválida.');
-        }
+        //     toast.error('Senha inválida.');
+        // }
 
         if (formErrors) return;
 

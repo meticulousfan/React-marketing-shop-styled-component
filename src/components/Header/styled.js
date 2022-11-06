@@ -19,6 +19,7 @@ export const Nav = styled.nav`
         color: ${colors.primaryColor};
         margin: 0 20px 0 0;
         font-weight: bold;
+        text-decoration: none;
     }
 
     img {
