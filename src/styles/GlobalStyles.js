@@ -45,12 +45,6 @@ export default createGlobalStyle`
         list-style: none;
     }
 
-    footer{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-
     /* body .Toastify .Toastify__toast-container .Toastify__toast--success {
         background: ${colors.successColor};
     } */

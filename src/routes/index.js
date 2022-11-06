@@ -9,15 +9,13 @@ import Aluno from '../pages/Aluno';
 import Alunos from '../pages/Alunos';
 import Fotos from '../pages/Fotos';
 import Register from '../pages/Register';
+import Produto from '../pages/Produto';
 
 export default function MainRoutes() {
     return (
         <Routes>
             <Route path={'/'} element={<Alunos />} isClosed={false} />
-            <Route path={'/aluno/:id/edit'} element={<Aluno />} isClosed />
-            <Route path={'/aluno/:id/delete'} element={<Aluno />} isClosed />
-            <Route path={'/aluno/'} element={<Aluno />} isClosed />
-            <Route path={'/fotos/:id'} element={<Fotos />} isClosed />
+            <Route path={'/produto'} element={<Produto />} />
             <Route
                 path={'/register/'}
                 element={<Register />}
