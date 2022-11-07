@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
 export const Nav = styled.nav`
+    height: 11%;
     background: #fff;
     padding: 10px 20px;
     display: flex;

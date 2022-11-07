@@ -54,3 +54,15 @@ export const Container = styled.section`
     border-top: 1px solid #eee;
     padding: 30px;
 `;
+
+export const FormContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 60%;
+    background: #fff;
+    border-top: 1px outset #f5a9bc;
+    padding: 30px;
+`;

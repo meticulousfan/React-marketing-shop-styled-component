@@ -10,7 +10,7 @@ import { Form, Main, Title } from './styled';
 import * as actions from '../../store/modules/auth/actions';
 import Loading from '../../components/Loading';
 
-export default function Login(props) {
+export default function LoginLoja(props) {
     const dispatch = useDispatch();
 
     const prevPath = get(props, 'location.state.prevPath', '/');
@@ -18,7 +18,7 @@ export default function Login(props) {
     const isLoading = useSelector((state) => state.auth.isLoading);
 
     const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+    const [password, setPassword] = useState('');
     let formErrors = false;
 
     async function handleSubmit(e) {
@@ -37,7 +37,7 @@ export default function Login(props) {
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, senha, prevPath }));
+        dispatch(actions.LoginRequest({ email, password, prevPath }));
     }
 
     return (
@@ -57,19 +57,19 @@ export default function Login(props) {
                             placeholder="Digite seu email"
                         />
                     </label>
-                    <label htmlFor="senha">
+                    <label htmlFor="password">
                         Senha:
                         <input
                             type="password"
-                            value={senha}
-                            onChange={(e) => setSenha(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             placeholder="Digite sua senha"
                         />
                     </label>
                     <button type="submit">Login</button>
                     <p>
                         Não tem uma conta?{' '}
-                        <Link to="/register">
+                        <Link to="/register-loja">
                             <strong>Cadastre-se</strong>
                         </Link>
                     </p>

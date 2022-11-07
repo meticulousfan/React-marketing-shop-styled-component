@@ -9,12 +9,12 @@ import history from '../../../services/history';
 
 function* LoginRequest({ payload }) {
     try {
-        const response = yield call(axios.post, '/tokens', payload);
+        const response = yield call(axios.post, '/login', payload);
         yield put(actions.LoginSucess({ ...response.data }));
 
         toast.success('Voçê logou com sucesso!');
 
-        axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
+        axios.defaults.headers.Authorization = `Bearer ${response.data.token_de_acesso}`;
         history.push(payload.prevPath);
     } catch (e) {
         yield put(actions.LoginFailure());

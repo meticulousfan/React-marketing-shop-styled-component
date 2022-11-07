@@ -41,11 +41,11 @@ export default function MenuDrop() {
                 </li>
                 <li>
                     <Link
+                        to="/"
                         onClick={(e) => {
                             e.preventDefault();
                             dispatch(actions.LoginFailure());
                         }}
-                        to="/"
                     >
                         <MdPowerSettingsNew size={24} />
                         Logout
