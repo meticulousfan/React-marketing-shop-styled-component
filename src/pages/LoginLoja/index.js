@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useDispatch, useSelector } from 'react-redux';
 import { get } from 'lodash';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FormContainer } from '../../styles/GlobalStyles';
 import { Form, Main, Title } from './styled';
@@ -12,13 +12,14 @@ import Loading from '../../components/Loading';
 
 export default function LoginLoja(props) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const prevPath = get(props, 'location.state.prevPath', '/');
 
     const isLoading = useSelector((state) => state.auth.isLoading);
 
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [senha, setSenha] = useState('');
     let formErrors = false;
 
     async function handleSubmit(e) {
@@ -29,15 +30,10 @@ export default function LoginLoja(props) {
 
             toast.error('Email inválido.');
         }
-        // if (password.length < 6 || password.length > 50) {
-        //     formErrors = true;
-
-        //     toast.error('Senha inválida.');
-        // }
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, password, prevPath }));
+        dispatch(actions.LoginRequest({ email, senha, prevPath }));
     }
 
     return (
@@ -57,12 +53,12 @@ export default function LoginLoja(props) {
                             placeholder="Digite seu email"
                         />
                     </label>
-                    <label htmlFor="password">
+                    <label htmlFor="senha">
                         Senha:
                         <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            type="senha"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
                             placeholder="Digite sua senha"
                         />
                     </label>

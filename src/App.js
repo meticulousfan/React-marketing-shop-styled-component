@@ -5,12 +5,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import store, { persistor } from './store';
-import history from './services/history';
 import MainRoutes from './routes';
 import GlobalStyles from './styles/GlobalStyles';
 import Header from './components/Header';
-import Register from './pages/Register';
-import Login from './pages/Login';
 
 function App() {
     return (

@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { isEmail } from 'validator';
 import { useDispatch, useSelector } from 'react-redux';
 import { get } from 'lodash';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { FormContainer } from '../../styles/GlobalStyles';
 import { Form, Main, Title } from './styled';
@@ -12,6 +12,7 @@ import Loading from '../../components/Loading';
 
 export default function Login(props) {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const prevPath = get(props, 'location.state.prevPath', '/');
 
@@ -37,7 +38,7 @@ export default function Login(props) {
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, senha, prevPath }));
+        dispatch(actions.LoginRequest({ email, senha }));
     }
 
     return (

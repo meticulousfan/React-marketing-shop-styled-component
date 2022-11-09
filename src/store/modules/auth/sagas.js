@@ -5,7 +5,6 @@ import { get } from 'lodash';
 import * as actions from './actions';
 import * as types from '../types';
 import axios from '../../../services/axios';
-import history from '../../../services/history';
 
 function* LoginRequest({ payload }) {
     try {
@@ -15,10 +14,10 @@ function* LoginRequest({ payload }) {
         toast.success('Voçê logou com sucesso!');
 
         axios.defaults.headers.Authorization = `Bearer ${response.data.token_de_acesso}`;
-        history.push(payload.prevPath);
     } catch (e) {
         yield put(actions.LoginFailure());
         toast.error('Usuário ou senha incorretos.');
+        return false;
     }
 }
 
@@ -42,16 +41,15 @@ function* registerRequest({ payload }) {
             });
             toast.success('Usuario criado com sucesso.');
             yield put(actions.registerCreateSucess({ nome, email, password }));
-            history.push('/login');
         }
     } catch (e) {
         const errors = get(e, 'response.data.erros', []);
         const status = get(e, 'response.status', 0);
 
         if (status === 401) {
-            toast.error('Voçê precisa azer login novamente.');
+            toast.error('Voçê precisa fazer login novamente.');
             yield put(actions.LoginFailure());
-            return history.push('/login');
+            return status;
         }
 
         if (errors.length > 0) {
