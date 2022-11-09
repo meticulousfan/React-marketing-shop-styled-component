@@ -3,8 +3,8 @@ import axios from '../../../services/axios';
 
 const initialState = {
     isLoggedIn: false,
-    token: false,
-    user: {},
+    token_de_acesso: false,
+    usuario: {},
     isLoading: false,
 };
 
@@ -13,8 +13,8 @@ export default function (state = initialState, action) {
         case types.LOGIN_SUCESS: {
             const newState = { ...state };
             newState.isLoggedIn = true;
-            newState.token = action.payload.token;
-            newState.user = action.payload.user;
+            newState.token_de_acesso = action.payload.token_de_acesso;
+            newState.usuario = action.payload.usuario;
             newState.isLoading = false;
 
             return newState;

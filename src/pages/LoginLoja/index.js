@@ -56,7 +56,7 @@ export default function LoginLoja(props) {
                     <label htmlFor="senha">
                         Senha:
                         <input
-                            type="senha"
+                            type="password"
                             value={senha}
                             onChange={(e) => setSenha(e.target.value)}
                             placeholder="Digite sua senha"

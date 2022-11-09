@@ -7,8 +7,6 @@ import * as types from '../types';
 import axios from '../../../services/axios';
 
 function* LoginLojaRequest({ payload }) {
-    const navigate = useNavigate();
-
     try {
         const response = yield call(axios.post, '/loja/login', payload);
         yield put(actions.LoginLojaSucess({ ...response.data }));
