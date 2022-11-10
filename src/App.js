@@ -11,19 +11,6 @@ import Header from './components/Header';
 
 function App() {
     return (
-        // <Provider store={store}>
-        //     <PersistGate persistor={persistor}>
-        //         <Router history={history}>
-        //             <Header />
-        //             <MainRoutes />
-        //             <GlobalStyles />
-        //             <ToastContainer
-        //                 autoClose={3000}
-        //                 className="toast-container"
-        //             />
-        //         </Router>
-        //     </PersistGate>
-        // </Provider>
         <Provider store={store}>
             <PersistGate persistor={persistor}>
                 <Header />
