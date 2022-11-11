@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { isEmail } from 'validator';
+import { isEmail, isCpf } from 'validator';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -12,9 +12,6 @@ import * as actions from '../../store/modules/auth/actions';
 export default function Register() {
     const dispatch = useDispatch();
 
-    // const id = useSelector((state) => state.auth.user.id);
-    // const nomeStored = useSelector((state) => state.auth.user.nome);
-    // const emailStored = useSelector((state) => state.auth.user.email);
     const isLoading = useSelector((state) => state.auth.isLoading);
 
     const [nome, setNome] = useState('');
@@ -22,36 +19,34 @@ export default function Register() {
     const [senha, setsenha] = useState('');
     const [CPF, setCPF] = useState('');
 
-    // useEffect(() => {
-    //     if (!id) return;
-
-    //     setNome(nomeStored);
-    //     setEmail(emailStored);
-    // }, [id, nomeStored, emailStored]);
-
     async function handleSubmit(e) {
         e.preventDefault();
         let formErrors = false;
 
-        if (nome.length < 3 || nome.length > 255) {
+        if (!nome) {
             formErrors = true;
 
-            toast.error('Nome deve ter entre 3 e 255 caracteres.');
+            toast.error('O campo nome é obrigatório.');
         }
         if (!isEmail(email)) {
             formErrors = true;
 
             toast.error('Email inválido ex:"example@example.com".');
         }
-        if (!id && (senha.length < 6 || senha.length > 50)) {
+        if (!senha) {
             formErrors = true;
 
-            toast.error('Senha deve ter entre 6 e 50 caracteres.');
+            toast.error('O campo senha é obrigatório.');
+        }
+        if (!CPF) {
+            formErrors = true;
+
+            toast.error('O campo CPF é obrigatório.');
         }
 
         if (formErrors) return;
 
-        dispatch(actions.registerRequest({ nome, email, senha, id }));
+        dispatch(actions.registerRequest({ nome, email, senha, CPF }));
     }
 
     return (
@@ -59,7 +54,6 @@ export default function Register() {
             <FormContainer>
                 <Loading isLoading={isLoading} />
 
-                {/* <Title>{id ? 'Editar dados' : 'Crie sua conta'}</Title> */}
                 <Title>Crie sua conta</Title>
 
                 <Form onSubmit={handleSubmit}>
@@ -95,18 +89,15 @@ export default function Register() {
                         <input
                             type="text"
                             value={CPF}
-                            onChange={(e) => setsenha(e.target.value)}
-                            placeholder="Digite seu CPF"
+                            onChange={(e) => setCPF(e.target.value)}
+                            placeholder="000.000.000-00"
                         />
                     </label>
 
-                    <button type="submit">
-                        Criar minha conta
-                        {/* {id ? 'Salvar' : 'Criar minha conta'} */}
-                    </button>
+                    <button type="submit">Criar minha conta</button>
                     <p>
                         Já tem uma conta?{' '}
-                        <Link to="/login-loja">
+                        <Link to="/login">
                             <strong>Faça login</strong>
                         </Link>
                     </p>

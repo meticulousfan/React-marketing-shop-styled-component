@@ -22,26 +22,20 @@ function* LoginRequest({ payload }) {
 }
 
 function* registerRequest({ payload }) {
-    const { nome, email, password, id } = payload;
+    const { nome, email, senha, CPF } = payload;
 
     try {
-        if (id) {
-            yield call(axios.put, '/users', {
-                email,
-                nome,
-                password: password || undefined,
-            });
-            toast.success('Conta alterada com sucesso.');
-            yield put(actions.registerUpdateSucess({ nome, email, password }));
-        } else {
-            yield call(axios.post, '/users', {
-                email,
-                nome,
-                password,
-            });
-            toast.success('Usuario criado com sucesso.');
-            yield put(actions.registerCreateSucess({ nome, email, password }));
-        }
+        yield call(axios.post, '/usuario/cadastro', {
+            nome,
+            sobrenome: 'qualquer',
+            email,
+            senha,
+            CPF,
+        });
+        toast.success('Usuario criado com sucesso.');
+        yield put(
+            actions.registerCreateSucess({ nome, sobrenome, email, senha, CPF })
+        );
     } catch (e) {
         const errors = get(e, 'response.data.erros', []);
         const status = get(e, 'response.status', 0);

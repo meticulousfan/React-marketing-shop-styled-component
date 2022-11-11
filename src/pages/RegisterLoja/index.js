@@ -106,7 +106,7 @@ export default function Register() {
                     </button>
                     <p>
                         Já tem uma conta?{' '}
-                        <Link to="/login">
+                        <Link to="/login-loja">
                             <strong>Faça login</strong>
                         </Link>
                     </p>
