@@ -12,46 +12,41 @@ import * as actions from '../../store/modules/auth/actions';
 export default function Register() {
     const dispatch = useDispatch();
 
-    // const id = useSelector((state) => state.auth.user.id);
-    // const nomeStored = useSelector((state) => state.auth.user.nome);
-    // const emailStored = useSelector((state) => state.auth.user.email);
     const isLoading = useSelector((state) => state.auth.isLoading);
 
-    const [nome, setNome] = useState('');
+    const [nomeFantasia, setNomeFantasia] = useState('');
     const [email, setEmail] = useState('');
-    const [senha, setsenha] = useState('');
-    const [CPF, setCPF] = useState('');
-
-    // useEffect(() => {
-    //     if (!id) return;
-
-    //     setNome(nomeStored);
-    //     setEmail(emailStored);
-    // }, [id, nomeStored, emailStored]);
+    const [senha, setSenha] = useState('');
+    const [CNPJ, setCNPJ] = useState('');
 
     async function handleSubmit(e) {
         e.preventDefault();
         let formErrors = false;
 
-        if (nome.length < 3 || nome.length > 255) {
+        if (!nomeFantasia) {
             formErrors = true;
 
-            toast.error('Nome deve ter entre 3 e 255 caracteres.');
+            toast.error('O campo nome fantasia é obrigatório.');
         }
         if (!isEmail(email)) {
             formErrors = true;
 
             toast.error('Email inválido ex:"example@example.com".');
         }
-        if (!id && (senha.length < 6 || senha.length > 50)) {
+        if (!senha) {
             formErrors = true;
 
-            toast.error('Senha deve ter entre 6 e 50 caracteres.');
+            toast.error('O campo senha é obrigatório.');
+        }
+        if (!CNPJ) {
+            formErrors = true;
+
+            toast.error('O campo CNPJ é obrigatório.');
         }
 
         if (formErrors) return;
 
-        dispatch(actions.registerRequest({ nome, email, senha, id }));
+        dispatch(actions.registerRequest({ nomeFantasia, email, senha, CNPJ }));
     }
 
     return (
@@ -59,17 +54,16 @@ export default function Register() {
             <FormContainer>
                 <Loading isLoading={isLoading} />
 
-                {/* <Title>{id ? 'Editar dados' : 'Crie sua conta'}</Title> */}
                 <Title>Crie sua conta</Title>
 
                 <Form onSubmit={handleSubmit}>
-                    <label htmlFor="nome">
-                        Nome:
+                    <label htmlFor="nome_fantasia">
+                        Nome Fantasia:
                         <input
                             type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            placeholder="Digite seu nome"
+                            value={nomeFantasia}
+                            onChange={(e) => setNomeFantasia(e.target.value)}
+                            placeholder="Digite o nome da sua loja"
                         />
                     </label>
                     <label htmlFor="email">
@@ -84,26 +78,23 @@ export default function Register() {
                     <label htmlFor="senha">
                         Senha:
                         <input
-                            type="senha"
+                            type="password"
                             value={senha}
-                            onChange={(e) => setsenha(e.target.value)}
+                            onChange={(e) => setSenha(e.target.value)}
                             placeholder="Digite sua senha"
                         />
                     </label>
-                    <label htmlFor="CPF">
-                        CPF:
+                    <label htmlFor="CNPJ">
+                        CNPJ:
                         <input
                             type="text"
-                            value={CPF}
-                            onChange={(e) => setsenha(e.target.value)}
-                            placeholder="Digite seu CPF"
+                            value={CNPJ}
+                            onChange={(e) => setCNPJ(e.target.value)}
+                            placeholder="XX. XXX. XXX/0001-XX"
                         />
                     </label>
 
-                    <button type="submit">
-                        Criar minha conta
-                        {/* {id ? 'Salvar' : 'Criar minha conta'} */}
-                    </button>
+                    <button type="submit">Criar minha conta</button>
                     <p>
                         Já tem uma conta?{' '}
                         <Link to="/login-loja">
