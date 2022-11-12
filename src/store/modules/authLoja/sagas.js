@@ -48,6 +48,8 @@ function* registerLojaRequest({ payload }) {
             yield put(actions.LoginLojaFailure());
         }
 
+        console.log(errors);
+
         if (errors.length > 0) {
             errors.map((error) => toast.error(error));
         } else {

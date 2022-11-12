@@ -6,7 +6,8 @@ export const FooterContainer = styled.footer`
     height: 150px;
     width: 100%;
     display: flex;
-
+    position: fixed;
+    bottom: 1;
     .news {
         display: flex;
         width: 40%;

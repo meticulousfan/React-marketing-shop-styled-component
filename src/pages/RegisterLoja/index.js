@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import { FormContainer } from '../../styles/GlobalStyles';
 import { Form, Title, Main } from './styled';
 import Loading from '../../components/Loading';
-import * as actions from '../../store/modules/auth/actions';
+import * as actions from '../../store/modules/authLoja/actions';
 
 export default function Register() {
     const dispatch = useDispatch();
 
-    const isLoading = useSelector((state) => state.auth.isLoading);
+    const isLoading = useSelector((state) => state.authLoja.isLoading);
 
     const [nomeFantasia, setNomeFantasia] = useState('');
     const [email, setEmail] = useState('');
@@ -46,7 +46,9 @@ export default function Register() {
 
         if (formErrors) return;
 
-        dispatch(actions.registerRequest({ nomeFantasia, email, senha, CNPJ }));
+        dispatch(
+            actions.registerLojaRequest({ nomeFantasia, email, senha, CNPJ })
+        );
     }
 
     return (
