@@ -4,41 +4,41 @@ import axios from '../../../services/axios';
 const initialState = {
     isLoggedIn: false,
     token_de_acesso: false,
-    usuario: {},
+    loja: {},
     isLoading: false,
 };
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case types.LOGIN_SUCESS: {
+        case types.LOGIN_LOJA_SUCESS: {
             const newState = { ...state };
             newState.isLoggedIn = true;
             newState.token_de_acesso = action.payload.token_de_acesso;
-            newState.usuario = action.payload.usuario;
+            newState.loja = action.payload.loja;
             newState.isLoading = false;
 
             return newState;
         }
 
-        case types.LOGIN_REQUEST: {
+        case types.LOGIN_LOJA_REQUEST: {
             const newState = { ...state };
             newState.isLoading = true;
             return newState;
         }
 
-        case types.LOGIN_FAILURE: {
+        case types.LOGIN_LOJA_FAILURE: {
             delete axios.defaults.headers.Authorization;
             const newState = { ...initialState };
             return newState;
         }
 
-        case types.REGISTER_CREATE_SUCESS: {
+        case types.REGISTER_LOJA_CREATE_SUCESS: {
             const newState = { ...state };
             newState.isLoading = false;
             return newState;
         }
 
-        case types.REGISTER_UPDATE_SUCESS: {
+        case types.REGISTER_LOJA_UPDATE_SUCESS: {
             const newState = { ...state };
             newState.user.nome = action.payload.nome;
             newState.user.email = action.payload.email;
@@ -46,13 +46,13 @@ export default function (state = initialState, action) {
             return newState;
         }
 
-        case types.REGISTER_REQUEST: {
+        case types.REGISTER_LOJA_REQUEST: {
             const newState = { ...state };
             newState.isLoading = true;
             return newState;
         }
 
-        case types.REGISTER_FAILURE: {
+        case types.REGISTER_LOJA_FAILURE: {
             const newState = { ...state };
             newState.isLoading = false;
             return newState;

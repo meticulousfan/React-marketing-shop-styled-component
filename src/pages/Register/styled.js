@@ -1,9 +1,24 @@
 import styled from 'styled-components';
 import * as colors from '../../config/colors';
+import FundoArte from '../../assets/FundoArte.jpg';
+import FundoAves from '../../assets/FundoAves.jpg';
+import FundoBuque from '../../assets/FundoBuque.jpg';
+import FundoColorido from '../../assets/FundoColorido.jpg';
+import FundoFlores from '../../assets/FundoFlores.jpg';
+import FundoFrutas from '../../assets/FundoFrutas.jpg';
+
+export const Main = styled.main`
+    width: 100%;
+    height: 89%;
+    display: flex;
+    justify-content: center;
+    background-image: url(${FundoBuque});
+`;
 
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
+    width: 70%;
     margin-top: 20px;
 
     label {

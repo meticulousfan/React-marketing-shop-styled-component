@@ -6,58 +6,60 @@ import * as actions from './actions';
 import * as types from '../types';
 import axios from '../../../services/axios';
 
-function* LoginRequest({ payload }) {
+function* LoginLojaRequest({ payload }) {
     try {
-        const response = yield call(axios.post, '/login', payload);
-        yield put(actions.LoginSucess({ ...response.data }));
+        const response = yield call(axios.post, '/loja/login', payload);
+        yield put(actions.LoginLojaSucess({ ...response.data }));
 
         toast.success('Voçê logou com sucesso!');
 
         axios.defaults.headers.Authorization = `Bearer ${response.data.token_de_acesso}`;
     } catch (e) {
-        yield put(actions.LoginFailure());
+        yield put(actions.LoginLojaFailure());
         toast.error('Usuário ou senha incorretos.');
-        return false;
     }
 }
 
-function* registerRequest({ payload }) {
-    const { nome, email, senha, CPF } = payload;
+function* registerLojaRequest({ payload }) {
+    const { nome_fantasia, email, senha, CNPJ } = payload;
 
     try {
-        yield call(axios.post, '/usuario/cadastro', {
-            nome,
-            sobrenome: 'qualquer',
+        yield call(axios.post, '/loja/cadastro', {
+            nome_fantasia,
             email,
             senha,
-            CPF,
+            CNPJ,
         });
-        toast.success('Usuario criado com sucesso.');
+        toast.success('Loja criada com sucesso.');
         yield put(
-            actions.registerCreateSucess({ nome, sobrenome, email, senha, CPF })
+            actions.registerLojaCreateSucess({
+                nome_fantasia,
+                email,
+                senha,
+                CNPJ,
+            })
         );
     } catch (e) {
         const errors = get(e, 'response.data.erros', []);
         const status = get(e, 'response.status', 0);
 
         if (status === 401) {
-            toast.error('Voçê precisa fazer login novamente.');
-            yield put(actions.LoginFailure());
-            return status;
+            toast.error('Voçê precisa azer login novamente.');
+            yield put(actions.LoginLojaFailure());
         }
 
         if (errors.length > 0) {
-            errors.map((error) => toast.error('error'));
+            errors.map((error) => toast.error(error));
         } else {
             toast.error('Erro desconhecido');
         }
 
-        yield put(actions.registerFailure());
+        yield put(actions.registerLojaFailure());
     }
 }
 
 function persistRehydrate({ payload }) {
-    const token = get(payload, 'auth.token', '');
+    const token = get(payload, 'authLoja.token', '');
 
     if (!token) return;
 
@@ -65,7 +67,7 @@ function persistRehydrate({ payload }) {
 }
 
 export default all([
-    takeLatest(types.LOGIN_REQUEST, LoginRequest),
+    takeLatest(types.LOGIN_LOJA_REQUEST, LoginLojaRequest),
     takeLatest(types.PERSIST_REHYDRATE, persistRehydrate),
-    takeLatest(types.REGISTER_REQUEST, registerRequest),
+    takeLatest(types.REGISTER_LOJA_REQUEST, registerLojaRequest),
 ]);

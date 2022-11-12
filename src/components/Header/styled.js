@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
 export const Nav = styled.nav`
+    height: 11%;
     background: #fff;
     padding: 10px 20px;
     display: flex;
@@ -19,6 +20,7 @@ export const Nav = styled.nav`
         color: ${colors.primaryColor};
         margin: 0 20px 0 0;
         font-weight: bold;
+        text-decoration: none;
     }
 
     img {

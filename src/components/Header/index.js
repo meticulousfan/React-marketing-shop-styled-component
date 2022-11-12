@@ -19,11 +19,11 @@ export default function Header() {
                 <img src={Logo} />
             </Link>
             <div>
-                <Link to="/feminino">Feminino</Link>
-                <Link to="/masculino">Masculino</Link>
+                <Link to="/feminina">Feminino</Link>
+                <Link to="/masculina">Masculino</Link>
             </div>
             <div>
-                <Link to="/loja">Venda Conosco</Link>
+                <Link to="/login-loja">Venda Conosco</Link>
                 <div>
                     <Link to="/favoritos">
                         <AiOutlineHeart size={24} />

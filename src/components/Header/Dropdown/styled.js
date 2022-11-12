@@ -11,15 +11,23 @@ export const Div = styled.div`
         height: 24px;
     }
 
-    ul {
-        width: max-content;
-        height: max-content;
+    #menu {
         background: #fff;
         border-radius: 5px;
         box-shadow: 0px 0px 8px 0px #ff897d;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        right: 20px;
+        top: 70px;
+        z-index: 1;
 
         div {
             padding-top: 10px;
+
+            a {
+                margin: 0;
+            }
         }
     }
 
@@ -30,27 +38,23 @@ export const Div = styled.div`
     }
 
     li + li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
         border-top: 1px solid ${colors.primaryLightColor};
-        padding: 10px 20px 10px 12px;
 
         svg {
-            margin: 0 12px;
+            margin: 0 8px 0 0;
         }
 
         a {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin: 0;
+            text-align: center;
             color: ${colors.primaryDarkColor};
         }
     }
 
     li {
         transition: 300ms;
+        padding: 10px 10px 10px 20px;
     }
 
     li:hover {
@@ -59,11 +63,5 @@ export const Div = styled.div`
 
     #usuario {
         position: relative;
-    }
-
-    #menu {
-        position: absolute;
-        right: 20px;
-        top: 70px;
     }
 `;

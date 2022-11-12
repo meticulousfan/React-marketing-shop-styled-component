@@ -10,7 +10,7 @@ import { Form, Main, Title } from './styled';
 import * as actions from '../../store/modules/auth/actions';
 import Loading from '../../components/Loading';
 
-export default function Login(props) {
+export default function LoginLoja(props) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -30,15 +30,10 @@ export default function Login(props) {
 
             toast.error('Email inválido.');
         }
-        // if (password.length < 6 || password.length > 50) {
-        //     formErrors = true;
-
-        //     toast.error('Senha inválida.');
-        // }
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, senha }));
+        dispatch(actions.LoginRequest({ email, senha, prevPath }));
     }
 
     return (
@@ -70,7 +65,7 @@ export default function Login(props) {
                     <button type="submit">Login</button>
                     <p>
                         Não tem uma conta?{' '}
-                        <Link to="/register">
+                        <Link to="/register-loja">
                             <strong>Cadastre-se</strong>
                         </Link>
                     </p>

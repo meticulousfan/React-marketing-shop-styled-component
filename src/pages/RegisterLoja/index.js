@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { isEmail, isCpf } from 'validator';
+import { isEmail } from 'validator';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -14,19 +14,19 @@ export default function Register() {
 
     const isLoading = useSelector((state) => state.auth.isLoading);
 
-    const [nome, setNome] = useState('');
+    const [nomeFantasia, setNomeFantasia] = useState('');
     const [email, setEmail] = useState('');
-    const [senha, setsenha] = useState('');
-    const [CPF, setCPF] = useState('');
+    const [senha, setSenha] = useState('');
+    const [CNPJ, setCNPJ] = useState('');
 
     async function handleSubmit(e) {
         e.preventDefault();
         let formErrors = false;
 
-        if (!nome) {
+        if (!nomeFantasia) {
             formErrors = true;
 
-            toast.error('O campo nome é obrigatório.');
+            toast.error('O campo nome fantasia é obrigatório.');
         }
         if (!isEmail(email)) {
             formErrors = true;
@@ -38,15 +38,15 @@ export default function Register() {
 
             toast.error('O campo senha é obrigatório.');
         }
-        if (!CPF) {
+        if (!CNPJ) {
             formErrors = true;
 
-            toast.error('O campo CPF é obrigatório.');
+            toast.error('O campo CNPJ é obrigatório.');
         }
 
         if (formErrors) return;
 
-        dispatch(actions.registerRequest({ nome, email, senha, CPF }));
+        dispatch(actions.registerRequest({ nomeFantasia, email, senha, CNPJ }));
     }
 
     return (
@@ -57,13 +57,13 @@ export default function Register() {
                 <Title>Crie sua conta</Title>
 
                 <Form onSubmit={handleSubmit}>
-                    <label htmlFor="nome">
-                        Nome:
+                    <label htmlFor="nome_fantasia">
+                        Nome Fantasia:
                         <input
                             type="text"
-                            value={nome}
-                            onChange={(e) => setNome(e.target.value)}
-                            placeholder="Digite seu nome"
+                            value={nomeFantasia}
+                            onChange={(e) => setNomeFantasia(e.target.value)}
+                            placeholder="Digite o nome da sua loja"
                         />
                     </label>
                     <label htmlFor="email">
@@ -78,26 +78,26 @@ export default function Register() {
                     <label htmlFor="senha">
                         Senha:
                         <input
-                            type="senha"
+                            type="password"
                             value={senha}
-                            onChange={(e) => setsenha(e.target.value)}
+                            onChange={(e) => setSenha(e.target.value)}
                             placeholder="Digite sua senha"
                         />
                     </label>
-                    <label htmlFor="CPF">
-                        CPF:
+                    <label htmlFor="CNPJ">
+                        CNPJ:
                         <input
                             type="text"
-                            value={CPF}
-                            onChange={(e) => setCPF(e.target.value)}
-                            placeholder="000.000.000-00"
+                            value={CNPJ}
+                            onChange={(e) => setCNPJ(e.target.value)}
+                            placeholder="XX. XXX. XXX/0001-XX"
                         />
                     </label>
 
                     <button type="submit">Criar minha conta</button>
                     <p>
                         Já tem uma conta?{' '}
-                        <Link to="/login">
+                        <Link to="/login-loja">
                             <strong>Faça login</strong>
                         </Link>
                     </p>
