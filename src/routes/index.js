@@ -11,6 +11,8 @@ import Carrinho from '../pages/Carrinho';
 import Masculina from '../pages/Masculina';
 import Feminina from '../pages/Feminina';
 import LoginLoja from '../pages/LoginLoja';
+import Favoritos from '../pages/Favoritos';
+import Produto from '../pages/Produto';
 
 export default function MainRoutes() {
     return (
@@ -23,9 +25,15 @@ export default function MainRoutes() {
             />
             <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route path={'/register/'} element={<Register />} />
+            <Route path={'/produto/'} element={<Produto />} isClosed={false} />
             <Route
                 path={'/carrinho/'}
                 element={<Carrinho />}
+                isClosed={false}
+            />
+            <Route
+                path={'/favoritos/'}
+                element={<Favoritos />}
                 isClosed={false}
             />
             <Route

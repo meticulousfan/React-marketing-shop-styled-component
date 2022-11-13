@@ -2,8 +2,10 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { GiClothes } from 'react-icons/gi';
+import { MdOutlineAddShoppingCart } from 'react-icons/md';
 
 import { Produtos } from './styled';
+import { Info } from './styled';
 
 export default function Produto() {
     return (
@@ -18,33 +20,40 @@ export default function Produto() {
                         <GiClothes size={60} />
                         <GiClothes size={60} />
                     </div>
-                    <p>Nome</p>
-                    <p>Valor</p>
                 </div>
             </div>
-            <div className="info">
+            <Info>
                 <div className="descricao">
-                    <p>Descrição</p>
-                </div>
-                <div className="tamanho">
-                    <h3>Tamanho:</h3>
-                </div>
-                <div className="botao">
-                    <button>P</button>
-                    <button>M</button>
-                    <button>G</button>
-                </div>
-                <div className="total">
-                    <h3>Total:</h3>
+                    <h2>Nome</h2>
+                    <h5>Vendido por:</h5>
+                    <h5>Descrição:</h5>
+                    <div className="campo"></div>
                 </div>
 
-                <div className="add">
-                    <button>Adicionar ao carrinho</button>
+                <div>
+                    <div className="tamanho">
+                        <h5>Tamanho:</h5>
+
+                        <button>P</button>
+                        <button>M</button>
+                        <button>G</button>
+                    </div>
+                    <div className="tamanho">
+                        <h5>Cores:</h5>
+
+                        <button>amarelo</button>
+                        <button>azul</button>
+                        <button>vermelho</button>
+                    </div>
                 </div>
-                <div className="vendido">
-                    <p>Vendido por:</p>
+                <div className="resumo">
+                    <h2>Valor:</h2>
+                    <button>
+                        <MdOutlineAddShoppingCart size={30} />
+                        Adicionar
+                    </button>
                 </div>
-            </div>
+            </Info>
         </Produtos>
     );
 }
