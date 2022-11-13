@@ -7,6 +7,18 @@ export const Produtos = styled.div`
     width: 100%;
     color: ${colors.primaryDarkColor};
 
+    .link-danger {
+        cursor: pointer;
+        position: absolute;
+        top: 1;
+        left: 40%;
+    }
+
+    .link-dark {
+        top: 0;
+        left: 5px;
+    }
+
     .fotos {
         display: flex;
         flex-direction: column;
@@ -48,11 +60,11 @@ export const Info = styled.div`
     }
 
     .campo {
-        border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
+        border: 1px rgb(0, 0, 0, 0.2) solid;
         width: 80%;
         height: 150px;
         padding: 10px;
-        background: #eee;
+        background:#E9F0EB;
     }
 
     .tamanho {
