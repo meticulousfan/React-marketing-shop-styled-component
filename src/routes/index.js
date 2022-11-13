@@ -7,6 +7,7 @@ import Page404 from '../pages/Page404';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Produtos from '../pages/Produtos';
+import Carrinho from '../pages/Carrinho';
 import Masculina from '../pages/Masculina';
 import Feminina from '../pages/Feminina';
 import LoginLoja from '../pages/LoginLoja';
@@ -22,6 +23,11 @@ export default function MainRoutes() {
             />
             <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route path={'/register/'} element={<Register />} />
+            <Route
+                path={'/carrinho/'}
+                element={<Carrinho />}
+                isClosed={false}
+            />
             <Route
                 path={'/register-loja'}
                 element={<Register />}

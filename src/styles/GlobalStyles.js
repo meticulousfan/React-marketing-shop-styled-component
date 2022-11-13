@@ -68,3 +68,8 @@ export const FormContainer = styled.section`
     border-top: 1px outset #f5a9bc;
     padding: 30px;
 `;
+
+export const Footer = styled.div`
+    display: flex;
+    position: absolute;
+`;
