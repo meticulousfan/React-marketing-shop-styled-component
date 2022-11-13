@@ -14,6 +14,7 @@ export default createGlobalStyle`
         font-family: sans-serif;
         background: ${colors.primaryLightColor};
         color: ${colors.primaryColor};
+        position: relative;
     }
 
     html, body, #root{
@@ -46,6 +47,7 @@ export default createGlobalStyle`
     /* body .Toastify .Toastify__toast-container .Toastify__toast--success {
         background: ${colors.successColor};
     } */
+
 `;
 
 export const Container = styled.section`
@@ -65,4 +67,9 @@ export const FormContainer = styled.section`
     background: #fff;
     border-top: 1px outset #f5a9bc;
     padding: 30px;
+`;
+
+export const Footer = styled.div`
+    display: flex;
+    position: absolute;
 `;

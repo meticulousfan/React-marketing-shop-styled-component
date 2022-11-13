@@ -21,42 +21,24 @@ function* LoginLojaRequest({ payload }) {
 }
 
 function* registerLojaRequest({ payload }) {
-    const { nome_fantasia, email, senha, CNPJ, loja_id } = payload;
+    const { nome_fantasia, email, senha, CNPJ } = payload;
 
     try {
-        if (loja_id) {
-            yield call(axios.put, `/loja/${loja_id}`, {
-                nome_fantasia,
-                email,
-                senha: senha || undefined,
-                CNPJ,
-            });
-            toast.success('Conta alterada com sucesso.');
-            yield put(
-                actions.registerLojaUpdateSucess({
-                    nome_fantasia,
-                    email,
-                    senha,
-                    CNPJ,
-                })
-            );
-        } else {
-            yield call(axios.post, '/loja/cadastro', {
+        yield call(axios.post, '/loja/cadastro', {
+            nome_fantasia,
+            email,
+            senha,
+            CNPJ,
+        });
+        toast.success('Loja criada com sucesso.');
+        yield put(
+            actions.registerLojaCreateSucess({
                 nome_fantasia,
                 email,
                 senha,
                 CNPJ,
-            });
-            toast.success('Usuario criado com sucesso.');
-            yield put(
-                actions.registerLojaCreateSucess({
-                    nome_fantasia,
-                    email,
-                    senha,
-                    CNPJ,
-                })
-            );
-        }
+            })
+        );
     } catch (e) {
         const errors = get(e, 'response.data.erros', []);
         const status = get(e, 'response.status', 0);
@@ -65,6 +47,8 @@ function* registerLojaRequest({ payload }) {
             toast.error('Voçê precisa azer login novamente.');
             yield put(actions.LoginLojaFailure());
         }
+
+        console.log(errors);
 
         if (errors.length > 0) {
             errors.map((error) => toast.error(error));
