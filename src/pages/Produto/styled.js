@@ -1,94 +1,99 @@
 import styled from 'styled-components';
-import * as color from '../../config/colors';
+import * as colors from '../../config/colors';
 
 export const Produtos = styled.div`
-    padding-left: 10%;
+    background: #fff;
     display: flex;
-    width: 100vw;
-    color: ${color.primaryDarkColor};
-    height: 100vh;
+    width: 100%;
+    color: ${colors.primaryDarkColor};
 
     .fotos {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 50vw;
-        height: 100vh;
+        align-items: center;
+        width: 45%;
         border-right: 1px rgb(0, 0, 0, 0.2) solid;
+
+        svg {
+            color: darkblue;
+        }
     }
-    svg {
-        color: darkblue;
-    }
+
     .imagem {
         display: flex;
-        background-color: beige;
+        background-color: ${colors.primaryLightColor};
         width: 50%;
         height: 50%;
     }
     .carousel {
         display: flex;
-        flex-direction: row;
         width: 50%;
         margin-top: 10px;
         background-color: beige;
         justify-content: space-between;
     }
     .carousel svg {
-        margin: 5px;
+        padding: 5px;
     }
-    .footer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+`;
+
+export const Info = styled.div`
+    width: 55%;
+    padding: 20px;
+
+    .descricao{
+        border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
+        padding-bottom: 20px;
     }
-    .footer p {
-        margin: 5px;
-    }
-    .info {
-        width: 50vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .descricao {
-        width: 50vw;
-        height: 30vh;
-        display: flex;
-        justify-content: center;
+
+    .campo {
+        border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
+        width: 80%;
+        height: 150px;
         padding: 10px;
+        background: #eee;
     }
+
     .tamanho {
-        width: 50vw;
-        height: fit-content;
         display: flex;
-        justify-content: center;
-    }
-    .botao {
-        display: flex;
-        width: 20vw;
-        height: fit-content;
-        justify-content: center;
-        justify-content: space-between;
-        margin: 20px;
-    }
-    .botao button {
-        background-color: #faf6f7;
-        color: ${color.primaryDarkColor};
-    }
-    .total {
-        display: flex;
-        width: 50vw;
-        height: fit-content;
+        width: 100%;
         justify-content: flex-start;
+        align-items:center;
+        padding: 15px;
+        }
+    .tamanho + .tamanho{
+        border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
+
     }
-    .add button {
-        background-color: ${color.successColor};
-        width: fit-content;
-        align-items: flex-end;
+    .tamanho button{
+        background: #f1f4f2;
+        color: rgb(1, 1, 1, 0.8);
+        border-radius:50%;
+        margin-left: 5px ;
     }
-    .vendido {
-        width: 50vw;
+
+    .resumo {
         display: flex;
-        align-items: flex-end;
+        flex-direction: column;
+        padding-top: 20px;
+        align-items:center;
+    }
+    .resumo button {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        width: 50%;
+        background: ${colors.successColor};
+        transition: 300ms;
+
+        svg{
+            background: :white;
+            margin-right:10px
+        }
+    }
+    .resumo button:hover{
+        background: rgb(59, 173, 100);
+
     }
 `;
