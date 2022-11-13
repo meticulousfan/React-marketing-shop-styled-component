@@ -54,7 +54,6 @@ export default function Produto() {
                 <div>
                     <div className="tamanho">
                         <h5>Tamanho:</h5>
-
                         <button>P</button>
                         <button>M</button>
                         <button>G</button>

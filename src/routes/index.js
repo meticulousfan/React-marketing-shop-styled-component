@@ -13,7 +13,6 @@ import Masculina from '../pages/Masculina';
 import Feminina from '../pages/Feminina';
 import LoginLoja from '../pages/LoginLoja';
 import Favoritos from '../pages/Favoritos';
-import Produto from '../pages/Produto';
 
 export default function MainRoutes() {
     return (
