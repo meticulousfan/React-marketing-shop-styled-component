@@ -14,6 +14,7 @@ import LoginLoja from '../pages/LoginLoja';
 import Favoritos from '../pages/Favoritos';
 import Produto from '../pages/Produto';
 import Compras from '../pages/Compras';
+import PerfilUsuario from '../pages/PerfilUsuario/Routes';
 
 export default function MainRoutes() {
     return (
@@ -33,6 +34,11 @@ export default function MainRoutes() {
                 isClosed={false}
             />
             <Route path={'/compra/'} element={<Compras />} isClosed={false} />
+            <Route
+                path={'/perfil-usuario/'}
+                element={<PerfilUsuario />}
+                isClosed={false}
+            />
             <Route
                 path={'/favoritos/'}
                 element={<Favoritos />}
