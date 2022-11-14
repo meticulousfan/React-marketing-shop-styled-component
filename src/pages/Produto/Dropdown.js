@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 export default function DropdownCor() {
     return (
         <Dropdown as={ButtonGroup}>
-            <Button variant="light"></Button>
+            <Button variant="light" className="btn-drop"></Button>
 
             <Dropdown.Toggle split variant="light" id="dropdown-split-basic" />
 

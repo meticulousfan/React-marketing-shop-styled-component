@@ -13,6 +13,7 @@ import Masculina from '../pages/Masculina';
 import Feminina from '../pages/Feminina';
 import LoginLoja from '../pages/LoginLoja';
 import Favoritos from '../pages/Favoritos';
+import Compras from '../pages/Compras';
 
 export default function MainRoutes() {
     return (
@@ -31,6 +32,7 @@ export default function MainRoutes() {
                 element={<Carrinho />}
                 isClosed={false}
             />
+            <Route path={'/compra/'} element={<Compras />} isClosed={false} />
             <Route
                 path={'/favoritos/'}
                 element={<Favoritos />}

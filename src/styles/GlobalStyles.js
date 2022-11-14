@@ -52,6 +52,7 @@ export default createGlobalStyle`
 
 export const Container = styled.section`
     width: 100%;
+    height: 89%;
     background: #fff;
     border-top: 1px solid #eee;
     padding: 30px;

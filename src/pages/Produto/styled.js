@@ -4,28 +4,33 @@ import * as colors from '../../config/colors';
 export const Produtos = styled.div`
     background: #fff;
     display: flex;
+    height: 89%;
     width: 100%;
     color: ${colors.primaryDarkColor};
 
-    .link-danger {
-        cursor: pointer;
-        position: absolute;
-        top: 1;
-        left: 40%;
-    }
-
-    .link-dark {
-        top: 0;
-        left: 5px;
-    }
-
     .fotos {
         display: flex;
+        position: relative;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 45%;
         border-right: 1px rgb(0, 0, 0, 0.2) solid;
+
+        .link-danger {
+            cursor: pointer;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        .exit {
+            position: absolute;
+            cursor: pointer;
+            color: ${colors.primaryDarkColor};
+            top: 10px;
+            left: 20px;
+        }
 
         svg {
             color: darkblue;
@@ -55,34 +60,59 @@ export const Info = styled.div`
     padding: 20px;
 
     .descricao{
-        border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
+
+        h5 {
+            padding: 10px 0 10px 0;
+        }
     }
 
     .campo {
         border: 1px rgb(0, 0, 0, 0.2) solid;
+        border-radius: 0 5px;
         width: 80%;
         height: 150px;
-        padding: 10px;
-        background:#E9F0EB;
+        padding: 10px 20px;
+        background: #FAFDFF;
     }
 
-    .tamanho {
-        display: flex;
-        width: 100%;
-        justify-content: flex-start;
-        align-items:center;
-        padding: 15px;
-        }
     .tamanho + .tamanho{
         border-bottom: 1px rgb(0, 0, 0, 0.2) solid;
 
     }
     .tamanho button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        width: 30px;
+        height: 30px;
         background: #f1f4f2;
         color: rgb(1, 1, 1, 0.8);
         border-radius:50%;
-        margin-left: 5px ;
+        margin-left: 10px ;
+    }
+    .tamanho {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        align-items:center;
+        padding: 15px 0 15px 0;
+
+    }
+
+    .drop {
+        display: flex;
+        border-radius: 5px;
+        padding-bottom: 15px;
+
+        .btn-group {
+            margin-left: 10px;
+            height: 30px;
+            .btn-drop{
+                width: 150px;
+            }
+        }
     }
 
     .resumo {
@@ -90,6 +120,7 @@ export const Info = styled.div`
         flex-direction: column;
         padding-top: 20px;
         align-items:center;
+        border-top: 1px rgb(0, 0, 0, 0.2) solid;
     }
     .resumo button {
         display: flex;
