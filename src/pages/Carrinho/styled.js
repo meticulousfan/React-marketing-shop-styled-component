@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
 export const SubContainer = styled.main`
-    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;

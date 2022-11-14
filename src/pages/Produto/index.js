@@ -2,9 +2,8 @@ import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { GiClothes } from 'react-icons/gi';
-import { MdOutlineAddShoppingCart } from 'react-icons/md';
+import { MdOutlineAddShoppingCart, MdBackspace } from 'react-icons/md';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { TbArrowBackUp } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
 import DropdownCor from './Dropdown';
@@ -14,11 +13,10 @@ import { Info } from './styled';
 export default function Produto() {
     return (
         <Produtos>
-            <Link to="/">
-                <TbArrowBackUp size={30} className="link-dark" />
-            </Link>
-            <AiOutlineHeart size={24} className="link-danger" />
             <div className="fotos">
+                <Link to="/" className="exit">
+                    <MdBackspace size={40} className="exit" />
+                </Link>
                 <div className="imagem">
                     <GiClothes size={300} />
                 </div>
@@ -27,6 +25,8 @@ export default function Produto() {
                     <GiClothes size={60} />
                     <GiClothes size={60} />
                 </div>
+
+                <AiOutlineHeart size={35} className="link-danger" />
             </div>
             <Info>
                 <div className="descricao">
@@ -59,7 +59,7 @@ export default function Produto() {
                         <button>M</button>
                         <button>G</button>
                     </div>
-                    <div className="tamanho">
+                    <div className="drop">
                         <h5>Cores:</h5>
                         <DropdownCor />
                     </div>
