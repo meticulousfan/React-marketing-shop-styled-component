@@ -24,6 +24,9 @@ export const SideBar = styled.div`
         height: fit-content;
         border-bottom: 1px solid rgb(0, 0, 0, 0.2);
         transition: 300ms;
+        svg {
+            margin-left: 10px;
+        }
     }
 
     ul:hover {

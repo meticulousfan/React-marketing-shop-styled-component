@@ -4,9 +4,9 @@ import { Dados } from './styled';
 export default function DadosPerfil() {
     return (
         <Dados className="overflow-auto">
-            <div className="bemvindo">
+            <title>
                 <h1>Bem-vindo (a)</h1>
-            </div>
+            </title>
             <div className="nome">
                 <h5>Nome:</h5>
                 <h5>Sobrenome:</h5>
