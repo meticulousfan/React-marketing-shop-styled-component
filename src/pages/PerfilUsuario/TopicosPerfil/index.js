@@ -1,7 +1,7 @@
 import React from 'react';
 import { Painel } from '../../../styles/GlobalStyles';
 import { MdOutlineDataSaverOff, MdOutlineFavoriteBorder } from 'react-icons/md';
-import { FiShoppingBag, FiHelpCircle } from 'react-icons/fi';
+import { FiShoppingBag, FiHelpCircle, FiLogOut } from 'react-icons/fi';
 import { BsGearWideConnected } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
 import { SideBar } from './styled';
@@ -44,6 +44,12 @@ export default function TopicosPerfil() {
                         <ul>
                             Ajuda
                             <FiHelpCircle />
+                        </ul>
+                    </Link>
+                    <Link to="Sair">
+                        <ul>
+                            Sair
+                            <FiLogOut />
                         </ul>
                     </Link>
                 </li>

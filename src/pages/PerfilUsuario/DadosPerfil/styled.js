@@ -8,7 +8,7 @@ export const Dados = styled.div`
     display: flex;
     flex-direction: column;
 
-    .bemvindo {
+    title {
         display: flex;
         width: 80vw;
         height: 200px;
