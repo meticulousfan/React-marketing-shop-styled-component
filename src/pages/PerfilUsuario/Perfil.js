@@ -8,6 +8,7 @@ export default function Perfil() {
     return (
         <div>
             <TopicosPerfil />
+            <Outlet />
         </div>
     );
 }

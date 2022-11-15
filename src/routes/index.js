@@ -35,7 +35,7 @@ export default function MainRoutes() {
             />
             <Route path={'/compra/'} element={<Compras />} isClosed={false} />
             <Route
-                path={'/perfil-usuario/'}
+                path={'/perfil-usuario/*'}
                 element={<PerfilUsuario />}
                 isClosed={false}
             />
