@@ -1,24 +1,32 @@
 import styled from 'styled-components';
 import * as colors from '../../../config/colors';
 
-export const Painel = styled.div`
-    display: flex;
-    width: 20%;
-    height: 89%;
-    color: ${colors.primaryLightColor};
-    background: rgb(0, 0, 0, 0.5);
-    list-style: none;
+export const SideBar = styled.div`
+    height: 89vh;
     div {
-        flex-direction: column;
-        padding: 60px;
+        width: 100%;
+        padding: 40px;
         height: 40%;
         h4 {
             width: 100%;
             justify-content: space-around;
-            margin-left: 15px;
+            margin: 20px;
         }
     }
-    ul {
+    li {
         width: 100%;
+        margin-top: 15px;
+    }
+
+    ul {
+        color: ${colors.primaryLightColor};
+        width: 100%;
+        height: fit-content;
+        border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+        transition: 300ms;
+    }
+
+    ul:hover {
+        color: black;
     }
 `;

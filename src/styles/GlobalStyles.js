@@ -74,3 +74,13 @@ export const Footer = styled.div`
     display: flex;
     position: absolute;
 `;
+
+export const Painel = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 89vh;
+    color: ${colors.primaryLightColor};
+    background: rgb(0, 0, 0, 0.5);
+    list-style: none;
+`;
