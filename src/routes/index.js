@@ -15,6 +15,7 @@ import LoginLoja from '../pages/LoginLoja';
 import Favoritos from '../pages/Favoritos';
 import Compras from '../pages/Compras';
 import PerfilUsuario from '../pages/PerfilUsuario/Routes';
+import Perfil from '../pages/PerfilUsuario/Perfil';
 
 export default function MainRoutes() {
     return (
@@ -36,7 +37,7 @@ export default function MainRoutes() {
             <Route path={'/compra/'} element={<Compras />} isClosed={false} />
             <Route
                 path={'/perfil-usuario/*'}
-                element={<PerfilUsuario />}
+                element={<Perfil />}
                 isClosed={false}
             />
             <Route
