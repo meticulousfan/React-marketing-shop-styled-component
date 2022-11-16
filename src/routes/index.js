@@ -16,6 +16,7 @@ import Favoritos from '../pages/Favoritos';
 import Compras from '../pages/Compras';
 import Perfil from '../pages/PerfilUsuario/Perfil';
 import PerfilLoja from '../pages/PerfilLoja/Perfil';
+import PaginaLoja from '../pages/PaginaLoja';
 
 export default function MainRoutes() {
     return (
@@ -28,6 +29,7 @@ export default function MainRoutes() {
             />
             <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route path={'/register/'} element={<Register />} />
+            <Route path={'/pagina-loja/'} element={<PaginaLoja />} />
             <Route path={'/produto/'} element={<Produto />} isClosed={false} />
             <Route
                 path={'/carrinho/'}
