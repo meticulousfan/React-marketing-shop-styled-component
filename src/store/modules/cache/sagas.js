@@ -4,7 +4,6 @@ import { get } from 'lodash';
 
 import * as actions from './actions';
 import * as types from '../types';
-import axios from '../../../services/axios';
 
 function* CartRequest({ payload }, id) {
     try {

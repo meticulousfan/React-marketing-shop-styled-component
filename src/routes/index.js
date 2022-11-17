@@ -30,7 +30,11 @@ export default function MainRoutes() {
             <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route path={'/register/'} element={<Register />} />
             <Route path={'/pagina-loja/'} element={<PaginaLoja />} />
-            <Route path={'/produto/'} element={<Produto />} isClosed={false} />
+            <Route
+                path={'/produto/:id'}
+                element={<Produto />}
+                isClosed={false}
+            />
             <Route
                 path={'/carrinho/'}
                 element={<Carrinho />}

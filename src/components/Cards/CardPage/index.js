@@ -7,6 +7,7 @@ import axios from '../../../services/axios';
 import { Card, Body } from './styled';
 import Loading from '../../Loading';
 import * as actions from '../../../store/modules/cache/actions';
+import { Link } from 'react-router-dom';
 
 export default function CardPage(props) {
     const dispatch = useDispatch();
@@ -26,12 +27,16 @@ export default function CardPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    function handleFavorite() {
-        dispatch(actions.FavoriteRequest({ Algumacoisa: 'klkklkklk' }));
+    function handleFavorite(index) {
+        const produtoFavorito = [...produtos];
+        const prod = produtoFavorito[index];
+        dispatch(actions.FavoriteRequest({ prod }));
     }
 
     function handleCart(index) {
-        dispatch(actions.CartRequest({ Algumacoisa: 'klkklkklk' }));
+        const produtoCarrinho = [...produtos];
+        const prod = produtoCarrinho[index];
+        dispatch(actions.CartRequest({ prod }));
     }
 
     return (
@@ -41,27 +46,31 @@ export default function CardPage(props) {
                 return (
                     <Card key={String(produto.produto_id)}>
                         <div className="imagem">
-                            <img
-                                src={
-                                    produto.imagens_produto.length !== 0 ? (
-                                        produto.imagens_produto[0]?.url_imagem
-                                    ) : (
-                                        <GiClothes size={28} />
-                                    )
-                                }
-                            />
+                            <Link to={`produto/${produto.produto_id}`}>
+                                <img
+                                    src={
+                                        produto.imagens_produto.length !== 0 ? (
+                                            produto.imagens_produto[0]
+                                                ?.url_imagem
+                                        ) : (
+                                            <GiClothes size={28} />
+                                        )
+                                    }
+                                />
+                            </Link>
                             <AiOutlineHeart
                                 size={28}
-                                onClick={handleFavorite}
+                                onClick={(e) => handleFavorite(index)}
                             />
                         </div>
                         <div className="dadosProduto">
                             <h4>{produto.nome}</h4>
                             <h5>{`R$: ${produto.valor}`}</h5>
-                            <button onClick={handleCart}>
+                            <button onClick={(e) => handleCart(index)}>
                                 Adicionar ao carrinho
                             </button>
                         </div>
+                        ;
                     </Card>
                 );
             })}
