@@ -26,22 +26,18 @@ export default function CardPage(props) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    let nome = { nome: 'matheus' };
-
     function handleFavorite() {
-        dispatch(actions.FavoriteRequest({ nome }));
-        return alert('foi');
+        dispatch(actions.FavoriteRequest({ Algumacoisa: 'klkklkklk' }));
     }
 
-    function handleCart() {
-        dispatch(actions.CartRequest({ nome }));
-        return alert('foi');
+    function handleCart(index) {
+        dispatch(actions.CartRequest({ Algumacoisa: 'klkklkklk' }));
     }
 
     return (
         <Body className="col-12">
             <Loading isLoading={isLoading} />
-            {produtos.map((produto) => {
+            {produtos.map((produto, index) => {
                 return (
                     <Card key={String(produto.produto_id)}>
                         <div className="imagem">
