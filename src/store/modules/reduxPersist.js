@@ -6,7 +6,7 @@ export default (reducers) => {
         {
             key: 'OnlineShop',
             storage,
-            whitelist: ['auth', 'authLoja'],
+            whitelist: ['auth', 'cache', 'authLoja'],
         },
         reducers
     );

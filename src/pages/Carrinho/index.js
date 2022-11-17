@@ -7,6 +7,7 @@ import CardProduto from '../../components/Cards/CardProduto';
 
 export default function Carrinho() {
     const [subtotal, setSubtotal] = useState(0);
+    const [total, setTotal] = useState(0);
 
     return (
         <Container>
@@ -35,7 +36,7 @@ export default function Carrinho() {
                     <button>Comprar</button>
                 </div>
                 <div className="total">
-                    <h4>Total:</h4> <input type={'text'} readOnly></input>
+                    <h4>Total: {subtotal}</h4>
                 </div>
             </Compras>
         </Container>
