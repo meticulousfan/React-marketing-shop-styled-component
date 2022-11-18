@@ -46,11 +46,13 @@ export default function Produto() {
     }, [id]);
 
     function handleFavorite() {
-        dispatch(FavoriteRequest({ produto }));
+        const prod = { ...produto };
+        dispatch(FavoriteRequest({ prod }));
     }
 
     function handleCart() {
-        dispatch(CartRequest({ produto }));
+        const prod = { ...produto };
+        dispatch(CartRequest({ prod }));
     }
 
     return (
