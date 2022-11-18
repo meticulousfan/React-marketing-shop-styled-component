@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { GiClothes } from 'react-icons/gi';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import axios from '../../../services/axios';
 import { Card, Body } from './styled';
 import Loading from '../../Loading';
 import * as actions from '../../../store/modules/cache/actions';
-import { Link } from 'react-router-dom';
 
 export default function CardPage(props) {
     const dispatch = useDispatch();
@@ -46,26 +46,25 @@ export default function CardPage(props) {
                 return (
                     <Card key={String(produto.produto_id)}>
                         <div className="imagem">
-                            <Link to={`produto/${produto.produto_id}`}>
-                                <img
-                                    src={
-                                        produto.imagens_produto.length !== 0 ? (
-                                            produto.imagens_produto[0]
-                                                ?.url_imagem
-                                        ) : (
-                                            <GiClothes size={28} />
-                                        )
-                                    }
-                                />
-                            </Link>
+                            <img
+                                src={
+                                    produto.imagens_produto.length !== 0 ? (
+                                        produto.imagens_produto[0]?.url_imagem
+                                    ) : (
+                                        <GiClothes size={28} />
+                                    )
+                                }
+                            />
                             <AiOutlineHeart
                                 size={28}
                                 onClick={(e) => handleFavorite(index)}
                             />
                         </div>
                         <div className="dadosProduto">
-                            <h4>{produto.nome}</h4>
-                            <h5>{`R$: ${produto.valor}`}</h5>
+                            <Link to={`produto/${produto.produto_id}`}>
+                                <h4>{produto.nome}</h4>
+                                <h5>{`R$: ${produto.valor}`}</h5>
+                            </Link>
                             <button onClick={(e) => handleCart(index)}>
                                 Adicionar ao carrinho
                             </button>
