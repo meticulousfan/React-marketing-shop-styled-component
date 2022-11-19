@@ -14,7 +14,6 @@ import Carrossel from './Carrossel';
 
 export default function Produto() {
     const dispatch = useDispatch();
-    console.log('jjhjh');
 
     const id = useParams('id');
     const [lojaId, setLojaId] = useState(0);

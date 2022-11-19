@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as colors from '../../config/colors';
 
 export const Compra = styled.div`
+    position: relative;
     background: #fff;
     display: flex;
     width: 100%;
@@ -9,13 +10,42 @@ export const Compra = styled.div`
 `;
 
 export const Produtos = styled.section`
-    padding: 0 20px 0 20px;
+    padding: 10px 20px 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     width: 70%;
     border-right: 1px rgb(0, 0, 0, 0.2) solid;
+
+    svg {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+
+    div {
+        position: relative;
+        width: 100%;
+        margin-bottom: 10px;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            text-align: center;
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+            background: ${colors.primaryColor};
+            color: white;
+            z-index: 1;
+            font-weight: bolder;
+        }
+    }
 `;
 
 export const Info = styled.div`
@@ -32,6 +62,7 @@ export const Info = styled.div`
             width: 80%;
 
             .frete {
+                cursor: pointer;
                 height: 80px;
                 width: 45%;
                 border: 1px rgb(0, 0, 0, 0.2) solid;

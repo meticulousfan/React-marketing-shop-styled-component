@@ -9,6 +9,7 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     color: #000000;
+    border-bottom: 1px solid #eee;
 
     div {
         display: flex;

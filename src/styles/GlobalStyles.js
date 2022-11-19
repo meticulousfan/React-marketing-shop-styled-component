@@ -54,7 +54,6 @@ export const Container = styled.section`
     width: 100%;
     height: auto;
     background: #fff;
-    border-top: 1px solid #eee;
     padding: 30px;
 `;
 
