@@ -1,4 +1,5 @@
 import { createReducer, createAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import { createSelector } from 'reselect';
 
 export class CartItem {

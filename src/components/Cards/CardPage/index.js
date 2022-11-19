@@ -3,11 +3,12 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { GiClothes } from 'react-icons/gi';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import axios from '../../../services/axios';
 import { Card, Body } from './styled';
 import Loading from '../../Loading';
-import { addCartItem, addItem } from '../../../store/modules/cache/cart';
+import { addCartItem } from '../../../store/modules/cache/cart';
 import { addFavoriteItem } from '../../../store/modules/cache/favorite';
 
 export default function CardPage(props) {
@@ -40,6 +41,7 @@ export default function CardPage(props) {
             tamanho: prod.tamanho_produto,
             valor: prod.valor,
         };
+        toast.success('Produto adicionado aos Favoritos');
         dispatch(addFavoriteItem(item));
     }
 
@@ -50,11 +52,12 @@ export default function CardPage(props) {
             imagens: prod.imagens_produto,
             nome: prod.nome,
             descricao: prod.descricao,
-            qtd: prod.qtd_estoque,
+            Qtd: prod.qtd_estoque,
             cores: prod.cor_produto,
             tamanho: prod.tamanho_produto,
             valor: prod.valor,
         };
+        toast.success('Produto adicionado ao Carrinho');
         dispatch(addCartItem(item));
     }
 

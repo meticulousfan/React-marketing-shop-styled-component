@@ -9,6 +9,7 @@ import {
     itemsCartSelector,
     calculateTotalSelector,
 } from '../../store/modules/cache/cart';
+import { Link } from 'react-router-dom';
 
 export default function Carrinho() {
     const dispatch = useDispatch();
@@ -50,7 +51,9 @@ export default function Carrinho() {
             })}
             <Compras>
                 <div>
-                    <button>Comprar</button>
+                    <Link to={'/compra/'}>
+                        <button>Comprar</button>
+                    </Link>
                 </div>
                 <div className="total">
                     <h4>Total: {total}</h4>
