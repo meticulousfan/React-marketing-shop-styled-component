@@ -30,13 +30,13 @@ export default function CardPage(props) {
     function handleFavorite(index) {
         const produtoFavorito = [...produtos];
         const prod = produtoFavorito[index];
-        dispatch(actions.FavoriteRequest({ prod }));
+        dispatch(actions.FavoriteRequest(prod));
     }
 
     function handleCart(index) {
         const produtoCarrinho = [...produtos];
         const prod = produtoCarrinho[index];
-        dispatch(actions.CartRequest({ prod }));
+        dispatch(actions.CartRequest(prod));
     }
 
     return (
