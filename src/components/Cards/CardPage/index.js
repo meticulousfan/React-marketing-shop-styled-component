@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import axios from '../../../services/axios';
 import { Card, Body } from './styled';
 import Loading from '../../Loading';
-import * as actions from '../../../store/modules/cache/actions';
+import { addCartItem, addItem } from '../../../store/modules/cache/cart';
+import { addFavoriteItem } from '../../../store/modules/cache/favorite';
 
 export default function CardPage(props) {
     const dispatch = useDispatch();
@@ -28,15 +29,33 @@ export default function CardPage(props) {
     }, []);
 
     function handleFavorite(index) {
-        const produtoFavorito = [...produtos];
-        const prod = produtoFavorito[index];
-        dispatch(actions.FavoriteRequest(prod));
+        const prod = produtos[index];
+        const item = {
+            id: prod.produto_id,
+            imagens: prod.imagens_produto,
+            nome: prod.nome,
+            descricao: prod.descricao,
+            qtd: prod.qtd_estoque,
+            cores: prod.cor_produto,
+            tamanho: prod.tamanho_produto,
+            valor: prod.valor,
+        };
+        dispatch(addFavoriteItem(item));
     }
 
     function handleCart(index) {
-        const produtoCarrinho = [...produtos];
-        const prod = produtoCarrinho[index];
-        dispatch(actions.CartRequest(prod));
+        const prod = produtos[index];
+        const item = {
+            id: prod.produto_id,
+            imagens: prod.imagens_produto,
+            nome: prod.nome,
+            descricao: prod.descricao,
+            qtd: prod.qtd_estoque,
+            cores: prod.cor_produto,
+            tamanho: prod.tamanho_produto,
+            valor: prod.valor,
+        };
+        dispatch(addCartItem(item));
     }
 
     return (
