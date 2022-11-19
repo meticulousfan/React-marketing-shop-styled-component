@@ -24,6 +24,8 @@ export default function Produto() {
     const [loja, setLoja] = useState('');
     const [produto, setProduto] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    const [cores, setCores] = useState([]);
+    const [colors, setColors] = useState(' ');
 
     useEffect(() => {
         async function getData() {
@@ -31,6 +33,7 @@ export default function Produto() {
             const res = await axios.get(`produto/${id.id}`);
             setProduto(res.data);
             setLojaId(res.data.loja_id);
+            setColors(res.data.cor_produto.split(' '));
             setIsLoading(false);
         }
 
@@ -43,7 +46,10 @@ export default function Produto() {
 
         getData();
         getLoja();
-    }, [id]);
+    }, [id, lojaId]);
+
+    // setCores();
+    // console.log(colors);
 
     function handleFavorite() {
         const prod = { ...produto };
@@ -89,13 +95,13 @@ export default function Produto() {
                 <div>
                     <div className="tamanho">
                         <h5>Tamanho:</h5>
-                        <button>P</button>
+                        <button type="checkbox">P</button>
                         <button>M</button>
                         <button>G</button>
                     </div>
                     <div className="drop">
                         <h5>Cores:</h5>
-                        <DropdownCor />
+                        {/* <DropdownCor cores={colors} /> */}
                     </div>
                 </div>
                 <div className="resumo">
