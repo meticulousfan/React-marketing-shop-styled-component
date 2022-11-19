@@ -1,34 +1,31 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { Container } from '../../styles/GlobalStyles';
 import { Compras, SubContainer, Subtotal } from './styled';
 import CardProduto from '../../components/Cards/CardProduto';
-import Produtos from '../Produtos';
+import {
+    itemsCartSelector,
+    calculateTotalSelector,
+} from '../../store/modules/cache/cart';
 
 export default function Carrinho() {
-    const carrinho = useSelector((state) => state.cache.carrinho);
+    const dispatch = useDispatch();
+
+    const items = useSelector(itemsCartSelector);
+    const total = useSelector(calculateTotalSelector);
 
     const [subtotal, setSubtotal] = useState(0);
-    const [total, setTotal] = useState(0);
-    const [qtd, setQtd] = useState(1);
 
     return (
         <Container>
-            {carrinho.map((produto, index) => {
+            {items.map((item, index) => {
                 return (
                     <div key={String(index)}>
                         <SubContainer>
                             <div className="d-flex produto">
-                                <CardProduto
-                                    imagem={
-                                        produto.imagens_produto[0]?.url_imagem
-                                    }
-                                    nome={produto.nome}
-                                    descrico={produto.descricao}
-                                    valor={produto.valor}
-                                />
+                                <CardProduto item={item} />
                                 <Subtotal>
                                     <RiDeleteBin5Line
                                         className="link-danger"
@@ -39,12 +36,11 @@ export default function Carrinho() {
                                         Qtd:
                                         <input
                                             type={'number'}
-                                            defaultValue={1}
+                                            defaultValue={item.qtd}
                                         ></input>
                                     </h5>
                                     <h4 className="d-flex">
-                                        Subtotal R$:{' '}
-                                        {qtd == 1 ? produto.valor : subtotal}
+                                        Subtotal R$:{item.qtd * item.valor}
                                     </h4>
                                 </Subtotal>
                             </div>

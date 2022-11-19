@@ -11,10 +11,6 @@ import DropdownCor from './Dropdown';
 import { Produtos } from './styled';
 import { Info } from './styled';
 import axios from '../../services/axios';
-import {
-    CartRequest,
-    FavoriteRequest,
-} from '../../store/modules/cache/actions';
 
 export default function Produto() {
     const dispatch = useDispatch();
