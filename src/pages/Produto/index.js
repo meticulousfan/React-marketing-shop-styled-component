@@ -91,17 +91,17 @@ export default function Produto() {
                 <div>
                     <div className="tamanho">
                         <h5>Tamanho:</h5>
-                        <button>P</button>
-                        <button>M</button>
-                        <button>G</button>
+                        <button value={'P'}>P</button>
+                        <button value={'M'}>M</button>
+                        <button value={'G'}>G</button>
                     </div>
                     <div className="drop">
                         <h5>Cores:</h5>
-                        <DropdownCor cores={colors} />
+                        <DropdownCor cores={colors} value={''} />
                     </div>
                 </div>
                 <div className="resumo">
-                    <h2>Valor: {produto.valor}</h2>
+                    <h2>Valor: R$ {produto.valor} </h2>
                     <button onClick={handleCart}>
                         <MdOutlineAddShoppingCart size={30} />
                         Adicionar
