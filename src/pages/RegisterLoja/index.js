@@ -9,7 +9,7 @@ import { Form, Title, Main } from './styled';
 import Loading from '../../components/Loading';
 import * as actions from '../../store/modules/authLoja/actions';
 
-export default function Register() {
+export default function RegisterLoja() {
     const dispatch = useDispatch();
 
     const isLoading = useSelector((state) => state.authLoja.isLoading);

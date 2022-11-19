@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { Carousel } from 'react-responsive-carousel';
 import { GiClothes } from 'react-icons/gi';
 import { MdOutlineAddShoppingCart, MdBackspace } from 'react-icons/md';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -11,6 +10,7 @@ import DropdownCor from './Dropdown';
 import { Produtos } from './styled';
 import { Info } from './styled';
 import axios from '../../services/axios';
+import Carrossel from './Carrossel';
 
 export default function Produto() {
     const dispatch = useDispatch();
@@ -21,6 +21,9 @@ export default function Produto() {
     const [loja, setLoja] = useState('');
     const [produto, setProduto] = useState({});
     const [isLoading, setIsLoading] = useState(false);
+    // const [cores, setCores] = useState();
+    const [colors, setColors] = useState([]);
+    const [imagem, setImagem] = useState([]);
 
     useEffect(() => {
         async function getData() {
@@ -28,7 +31,9 @@ export default function Produto() {
             const res = await axios.get(`produto/${id.id}`);
             setProduto(res.data);
             setLojaId(res.data.loja_id);
+            setColors(res.data.cor_produto.split(' '));
             setIsLoading(false);
+            setImagem(res.data.imagens_produto);
         }
 
         async function getLoja() {
@@ -40,7 +45,10 @@ export default function Produto() {
 
         getData();
         getLoja();
-    }, [id]);
+    }, [id, lojaId]);
+
+    // setCores();
+    // console.log(imagem);
 
     function handleFavorite() {
         const prod = { ...produto };
@@ -49,7 +57,8 @@ export default function Produto() {
 
     function handleCart() {
         const prod = { ...produto };
-        dispatch(CartRequest({ prod }));
+        // dispatch(CartRequest({ prod }));
+        console.log(prod);
     }
 
     return (
@@ -58,14 +67,7 @@ export default function Produto() {
                 <Link to="/" className="exit">
                     <MdBackspace size={40} className="exit" />
                 </Link>
-                <div className="imagem">
-                    <GiClothes size={300} />
-                </div>
-                <div className="carousel">
-                    <GiClothes size={60} />
-                    <GiClothes size={60} />
-                    <GiClothes size={60} />
-                </div>
+                <Carrossel imagem={imagem} />
 
                 <AiOutlineHeart
                     size={35}
@@ -86,17 +88,17 @@ export default function Produto() {
                 <div>
                     <div className="tamanho">
                         <h5>Tamanho:</h5>
-                        <button>P</button>
-                        <button>M</button>
-                        <button>G</button>
+                        <button value={'P'}>P</button>
+                        <button value={'M'}>M</button>
+                        <button value={'G'}>G</button>
                     </div>
                     <div className="drop">
                         <h5>Cores:</h5>
-                        <DropdownCor />
+                        <DropdownCor cores={colors} value={''} />
                     </div>
                 </div>
                 <div className="resumo">
-                    <h2>Valor: {produto.valor}</h2>
+                    <h2>Valor: R$ {produto.valor} </h2>
                     <button onClick={handleCart}>
                         <MdOutlineAddShoppingCart size={30} />
                         Adicionar

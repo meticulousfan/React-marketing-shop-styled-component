@@ -17,6 +17,7 @@ import Compras from '../pages/Compras';
 import Perfil from '../pages/PerfilUsuario/Perfil';
 import PerfilLoja from '../pages/PerfilLoja/Perfil';
 import PaginaLoja from '../pages/PaginaLoja';
+import RegisterLoja from '../pages/RegisterLoja';
 
 export default function MainRoutes() {
     return (
@@ -58,7 +59,7 @@ export default function MainRoutes() {
             />
             <Route
                 path={'/register-loja'}
-                element={<Register />}
+                element={<RegisterLoja />}
                 isClosed={false}
             />
             <Route path={'/login/'} element={<Login />} isClosed={false} />
