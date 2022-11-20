@@ -9,10 +9,10 @@ export default function DropdownCor(props) {
     return (
         <Form.Select aria-label="Default select example" className="w-25">
             <option></option>
-            {props.cores.map((cor, index) => {
+            {props.params.map((param, index) => {
                 return (
                     <>
-                        <option key={String(index)}>{cor}</option>
+                        <option key={String(index)}>{param}</option>
                     </>
                 );
             })}
