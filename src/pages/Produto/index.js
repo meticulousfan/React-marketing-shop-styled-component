@@ -6,11 +6,11 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import DropdownCor from './Dropdown';
+import DropdownCor from '../../components/Dropdown/index';
 import { Produtos } from './styled';
 import { Info } from './styled';
 import axios from '../../services/axios';
-import Carrossel from './Carrossel';
+import Carrossel from '../../components/Carrossel/index';
 
 export default function Produto() {
     const dispatch = useDispatch();
@@ -93,7 +93,7 @@ export default function Produto() {
                     </div>
                     <div className="drop">
                         <h5>Cores:</h5>
-                        <DropdownCor cores={colors} value={''} />
+                        <DropdownCor params={colors} value={''} />
                     </div>
                 </div>
                 <div className="resumo">
