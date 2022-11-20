@@ -41,8 +41,8 @@ export default function CardPage(props) {
             tamanho: prod.tamanho_produto,
             valor: prod.valor,
         };
-        toast.success('Produto adicionado aos Favoritos');
         dispatch(addFavoriteItem(item));
+        toast.success('Produto adicionado aos Favoritos');
     }
 
     function handleCart(index) {
