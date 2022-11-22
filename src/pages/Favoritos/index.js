@@ -9,6 +9,8 @@ import { Container } from '../../styles/GlobalStyles';
 import { MdOutlineAddShoppingCart } from 'react-icons/md';
 import { itemsFavoriteSelector } from '../../store/modules/cache/favorite';
 import { addCartItem } from '../../store/modules/cache/cart';
+import { removeFavoriteItem } from '../../store/modules/cache/favorite';
+import { Link } from 'react-router-dom';
 
 export default function Favoritos() {
     const dispatch = useDispatch();
@@ -16,33 +18,51 @@ export default function Favoritos() {
 
     return (
         <Container>
-            {items.map((item, index) => {
-                return (
-                    <SubContainer key={index}>
-                        <div className="d-flex produto">
-                            <CardProduto item={item} />
-                            <Subtotal>
-                                <button className="excluir">
-                                    <RiDeleteBin5Line size={30} />
-                                    Remover
-                                </button>
-                                <button
-                                    className="adicionar"
-                                    onClick={(e) => {
-                                        toast.success(
-                                            'Produto adicionado ao Carrinho'
-                                        );
-                                        dispatch(addCartItem(item));
-                                    }}
-                                >
-                                    <MdOutlineAddShoppingCart size={30} />
-                                    Adicionar
-                                </button>
-                            </Subtotal>
-                        </div>
-                    </SubContainer>
-                );
-            })}
+            {items.length === 0 ? (
+                <div>
+                    <h1>Você não possui nenhum produto como favoritos</h1>
+                    <Link to={'/'}>
+                        <button className="btn btn-primary">
+                            Ir as compras
+                        </button>
+                    </Link>
+                </div>
+            ) : (
+                items.map((item, index) => {
+                    return (
+                        <SubContainer key={index}>
+                            <div className="d-flex produto">
+                                <CardProduto item={item} />
+                                <Subtotal>
+                                    <button
+                                        className="excluir"
+                                        onClick={(e) => {
+                                            dispatch(
+                                                removeFavoriteItem(item.id)
+                                            );
+                                        }}
+                                    >
+                                        <RiDeleteBin5Line size={30} />
+                                        Remover
+                                    </button>
+                                    <button
+                                        className="adicionar"
+                                        onClick={(e) => {
+                                            toast.success(
+                                                'Produto adicionado ao Carrinho'
+                                            );
+                                            dispatch(addCartItem(item));
+                                        }}
+                                    >
+                                        <MdOutlineAddShoppingCart size={30} />
+                                        Adicionar
+                                    </button>
+                                </Subtotal>
+                            </div>
+                        </SubContainer>
+                    );
+                })
+            )}
         </Container>
     );
 }

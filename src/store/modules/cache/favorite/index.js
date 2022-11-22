@@ -12,11 +12,14 @@ const INITIAL_STATE = {
 };
 
 export const addFavoriteItem = createAction('FAVORITE/ADD_ITEM');
+export const removeFavoriteItem = createAction('FAVORITE/REMOVE_ITEM');
 
 export default createReducer(INITIAL_STATE, {
     [addFavoriteItem]: (state, action) => ({
         items: verifyExistsItem(state, action),
     }),
+    [removeFavoriteItem]: (state, action) =>
+        state.filter((item) => item.id !== action.payload),
 });
 
 function verifyExistsItem(state, action) {
@@ -33,5 +36,5 @@ function verifyExistsItem(state, action) {
     return [...state.items, newItem];
 }
 
-export const favoriteQuantitySelector = (state) => state.favorite.items.lengh;
+export const favoriteQuantitySelector = (state) => state.favorite.items.lenght;
 export const itemsFavoriteSelector = (state) => state.favorite.items;
