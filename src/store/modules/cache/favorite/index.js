@@ -7,17 +7,13 @@ export class FavoriteItem {
     }
 }
 
-const INITIAL_STATE = {
-    items: [],
-};
+const INITIAL_STATE = [];
 
 export const addFavoriteItem = createAction('FAVORITE/ADD_ITEM');
 export const removeFavoriteItem = createAction('FAVORITE/REMOVE_ITEM');
 
 export default createReducer(INITIAL_STATE, {
-    [addFavoriteItem]: (state, action) => ({
-        items: verifyExistsItem(state, action),
-    }),
+    [addFavoriteItem]: (state, action) => verifyExistsItem(state, action),
     [removeFavoriteItem]: (state, action) =>
         state.filter((item) => item.id !== action.payload),
 });
@@ -25,16 +21,16 @@ export default createReducer(INITIAL_STATE, {
 function verifyExistsItem(state, action) {
     const newItem = new FavoriteItem(action.payload);
 
-    const existsItem = state.items.some((item) => item.id === newItem.id);
+    const existsItem = state.some((item) => item.id === newItem.id);
 
     if (existsItem) {
-        return state.items.map((item) => {
+        return state.map((item) => {
             return item.id === newItem.id ? { ...item } : item;
         });
     }
 
-    return [...state.items, newItem];
+    return [...state, newItem];
 }
 
-export const favoriteQuantitySelector = (state) => state.favorite.items.lenght;
-export const itemsFavoriteSelector = (state) => state.favorite.items;
+export const favoriteQuantitySelector = (state) => state.favorite.lenght;
+export const itemsFavoriteSelector = (state) => state.favorite;

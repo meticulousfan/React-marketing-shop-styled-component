@@ -8,36 +8,35 @@ export class CartItem {
     }
 }
 
-const INITIAL_STATE = {
-    items: [],
-};
+const INITIAL_STATE = [];
 
 export const addCartItem = createAction('CART/ADD_ITEM');
+export const removeCartItem = createAction('CART/REMOVE_ITEM');
 
 export default createReducer(INITIAL_STATE, {
-    [addCartItem]: (state, action) => ({
-        items: verifyExistsItem(state, action),
-    }),
+    [addCartItem]: (state, action) => verifyExistsItem(state, action),
+    [removeCartItem]: (state, action) =>
+        state.filter((item) => item.id !== action.payload),
 });
 
 function verifyExistsItem(state, action) {
     const newItem = new CartItem(action.payload);
 
-    const existsItem = state.items.some((item) => item.id === newItem.id);
+    const existsItem = state.some((item) => item.id === newItem.id);
 
     if (existsItem) {
-        return state.items.map((item) => {
+        return state.map((item) => {
             return item.id === newItem.id
                 ? { ...item, qtd: item.qtd + 1 }
                 : item;
         });
     }
 
-    return [...state.items, newItem];
+    return [...state, newItem];
 }
 
-export const cartQuantitySelector = (state) => state.cart.items.lengh;
-export const itemsCartSelector = (state) => state.cart.items;
+export const cartQuantitySelector = (state) => state.cart.lengh;
+export const itemsCartSelector = (state) => state.cart;
 
 export const calculateTotalSelector = createSelector(
     itemsCartSelector,
