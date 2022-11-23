@@ -18,7 +18,9 @@ function NavDropdown() {
 
     return (
         <Div>
+            <div className="on"></div>
             <FaRegUser
+                className="user"
                 size={24}
                 color={colors.primaryColor}
                 cursor="pointer"

@@ -48,9 +48,6 @@ export default function Favoritos() {
                                     <button
                                         className="adicionar"
                                         onClick={(e) => {
-                                            toast.success(
-                                                'Produto adicionado ao Carrinho'
-                                            );
                                             dispatch(addCartItem(item));
                                         }}
                                     >

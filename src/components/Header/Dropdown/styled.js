@@ -64,4 +64,19 @@ export const Div = styled.div`
     #usuario {
         position: relative;
     }
+
+    .user {
+        margin: 10px 20px;
+    }
+
+    .on {
+        position: absolute;
+        top: 10px;
+        right: 35px;
+        z-index: 0;
+        height: 15px;
+        width: 15px;
+        background: #1bfa01;
+        border-radius: 50%;
+    }
 `;
