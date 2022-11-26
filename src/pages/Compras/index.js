@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdBackspace } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,18 +17,20 @@ export default function Compras() {
 
     const items = useSelector(itemsCartSelector);
     const total = useSelector(calculateTotalSelector);
+    console.log(items.length);
 
     async function handleSubmit() {
         const res = await axios.post('/venda/cadastro', {
             usuario_id: 1,
         });
 
-        // for (i = 0; items.length; i++) {
-        //     axios.post('venda-produto/cadastro', {
-        //         produto_id: items.id,
-        //         venda_id: res.data.venda_id,
-        //     });
-        // }
+        for (let i = 0; i < items.length; i++) {
+            axios.post('venda-produto/cadastro', {
+                produto_id: items[i].id,
+                venda_id: res.data.venda_id,
+            });
+            console.log(items[i]);
+        }
         console.log(res.data);
     }
 
