@@ -5,11 +5,7 @@ export default function DropdownCor(props) {
         <Form.Select aria-label="Default select example" className="w-25">
             <option></option>
             {props.params.map((param, index) => {
-                return (
-                    <>
-                        <option key={String(index)}>{param}</option>
-                    </>
-                );
+                return <option key={String(index)}>{param}</option>;
             })}
         </Form.Select>
     );

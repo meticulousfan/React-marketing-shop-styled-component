@@ -35,7 +35,7 @@ function verifyExistsItem(state, action) {
     return [...state, newItem];
 }
 
-export const cartQuantitySelector = (state) => state.cart.lengh;
+export const cartQuantitySelector = (state) => state.cart.lenght;
 export const itemsCartSelector = (state) => state.cart;
 
 export const calculateTotalSelector = createSelector(

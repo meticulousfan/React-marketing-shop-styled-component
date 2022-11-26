@@ -10,12 +10,27 @@ import {
     calculateTotalSelector,
     itemsCartSelector,
 } from '../../store/modules/cache/cart';
+import axios from '../../services/axios';
 
 export default function Compras() {
     const dispatch = useDispatch();
 
     const items = useSelector(itemsCartSelector);
     const total = useSelector(calculateTotalSelector);
+
+    async function handleSubmit() {
+        const res = await axios.post('/venda/cadastro', {
+            usuario_id: 1,
+        });
+
+        // for (i = 0; items.length; i++) {
+        //     axios.post('venda-produto/cadastro', {
+        //         produto_id: items.id,
+        //         venda_id: res.data.venda_id,
+        //     });
+        // }
+        console.log(res.data);
+    }
 
     return (
         <>
@@ -37,7 +52,7 @@ export default function Compras() {
                 </Produtos>
                 <Info>
                     <div className="descricao">
-                        <h4>Total items: R$ </h4>
+                        <h4>Total items:</h4>
                         <h5>Endereço: "Avenida"</h5>
                         <h5>Frete:</h5>
                         <div>
@@ -52,7 +67,7 @@ export default function Compras() {
                     </div>
                     <div className="resumo">
                         <h2>Total: R$ {total}</h2>
-                        <button>Comprar</button>
+                        <button onClick={handleSubmit}>Comprar</button>
                     </div>
                 </Info>
             </Compra>

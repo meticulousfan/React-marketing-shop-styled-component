@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { GiClothes } from 'react-icons/gi';
-import { MdOutlineAddShoppingCart, MdBackspace } from 'react-icons/md';
+import {
+    MdOutlineAddShoppingCart,
+    MdBackspace,
+    MdStoreMallDirectory,
+} from 'react-icons/md';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -18,11 +21,11 @@ export default function Produto() {
     const dispatch = useDispatch();
 
     const id = useParams('id');
-    const [lojaId, setLojaId] = useState(0);
     const [loja, setLoja] = useState('');
+    const [lojaId, setLojaId] = useState();
     const [produto, setProduto] = useState({});
     const [isLoading, setIsLoading] = useState(false);
-    // const [cores, setCores] = useState();
+    const [tamanhos, setTamanhos] = useState([]);
     const [colors, setColors] = useState([]);
     const [imagem, setImagem] = useState([]);
 
@@ -33,6 +36,7 @@ export default function Produto() {
             setProduto(res.data);
             setLojaId(res.data.loja_id);
             setColors(res.data.cor_produto.split(' '));
+            setTamanhos(res.data.tamanho_produto.split(' '));
             setIsLoading(false);
             setImagem(res.data.imagens_produto);
         }
@@ -40,7 +44,7 @@ export default function Produto() {
         async function getLoja() {
             setIsLoading(true);
             const res = await axios.get(`loja/${lojaId}`);
-            setLoja(res.data.nome_fantasia);
+            setLoja(res.data);
             setIsLoading(false);
         }
 
@@ -93,7 +97,16 @@ export default function Produto() {
             <Info>
                 <div className="descricao">
                     <h2>{produto.nome}</h2>
-                    <h5>{loja}</h5>
+                    <Link to={`/pagina-loja/${lojaId}`}>
+                        <div className="d-flex align-items-center">
+                            {loja.img_perfil_loja ? (
+                                <img src={loja.img_perfil_loja} />
+                            ) : (
+                                <MdStoreMallDirectory size={35} />
+                            )}
+                            <h5>{loja.nome_fantasia}</h5>
+                        </div>
+                    </Link>
                     <h5>Descrição:</h5>
                     <div className="campo overflow-auto">
                         <p>{produto.descricao}</p>
@@ -103,9 +116,9 @@ export default function Produto() {
                 <div>
                     <div className="tamanho">
                         <h5>Tamanho:</h5>
-                        <button value={'P'}>P</button>
-                        <button value={'M'}>M</button>
-                        <button value={'G'}>G</button>
+                        {tamanhos.map((tamanho, index) => {
+                            return <button key={index}>{tamanho}</button>;
+                        })}
                     </div>
                     <div className="drop">
                         <h5>Cores:</h5>
