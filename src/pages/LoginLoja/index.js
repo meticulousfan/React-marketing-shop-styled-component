@@ -7,12 +7,11 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { FormContainer } from '../../styles/GlobalStyles';
 import { Form, Main, Title } from './styled';
-import * as actions from '../../store/modules/auth/actions';
+import * as actions from '../../store/modules/authLoja/actions';
 import Loading from '../../components/Loading';
 
 export default function LoginLoja(props) {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     const prevPath = get(props, 'location.state.prevPath', '/');
 
@@ -33,7 +32,7 @@ export default function LoginLoja(props) {
 
         if (formErrors) return;
 
-        dispatch(actions.LoginRequest({ email, senha, prevPath }));
+        dispatch(actions.LoginLojaRequest({ email, senha, prevPath }));
     }
 
     return (
