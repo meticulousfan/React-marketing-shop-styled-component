@@ -13,8 +13,8 @@ export default function (state = initialState, action) {
         case types.LOGIN_LOJA_SUCESS: {
             const newState = { ...state };
             newState.isLoggedIn = true;
-            newState.token_de_acesso = action.payload.token_de_acesso;
-            newState.loja = action.payload.loja;
+            newState.token_de_acesso = action.payload[0];
+            newState.loja = action.payload[1];
             newState.isLoading = false;
 
             return newState;

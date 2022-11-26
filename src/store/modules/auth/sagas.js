@@ -13,7 +13,7 @@ function* LoginRequest({ payload }) {
 
         toast.success('Voçê logou com sucesso!');
 
-        axios.defaults.headers.Authorization = `Bearer ${response.data.token_de_acesso}`;
+        axios.defaults.headers.Authorization = `Bearer ${response.data[0]}`;
     } catch (e) {
         yield put(actions.LoginFailure());
         toast.error('Usuário ou senha incorretos.');

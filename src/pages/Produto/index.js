@@ -11,6 +11,8 @@ import { Produtos } from './styled';
 import { Info } from './styled';
 import axios from '../../services/axios';
 import Carrossel from '../../components/Carrossel/index';
+import { addCartItem } from '../../store/modules/cache/cart/index';
+import { addFavoriteItem } from '../../store/modules/cache/favorite/index';
 
 export default function Produto() {
     const dispatch = useDispatch();
@@ -46,18 +48,32 @@ export default function Produto() {
         getLoja();
     }, [id, lojaId]);
 
-    // setCores();
-    // console.log(imagem);
-
     function handleFavorite() {
-        const prod = { ...produto };
-        dispatch(FavoriteRequest({ prod }));
+        const item = {
+            id: produto.produto_id,
+            imagens: produto.imagens_produto,
+            nome: produto.nome,
+            descricao: produto.descricao,
+            qtd: produto.qtd_estoque,
+            cores: produto.cor_produto,
+            tamanho: produto.tamanho_produto,
+            valor: produto.valor,
+        };
+        dispatch(addFavoriteItem(item));
     }
 
     function handleCart() {
-        const prod = { ...produto };
-        // dispatch(CartRequest({ prod }));
-        console.log(prod);
+        const item = {
+            id: produto.produto_id,
+            imagens: produto.imagens_produto,
+            nome: produto.nome,
+            descricao: produto.descricao,
+            Qtd: produto.qtd_estoque,
+            cores: produto.cor_produto,
+            tamanho: produto.tamanho_produto,
+            valor: produto.valor,
+        };
+        dispatch(addCartItem(item));
     }
 
     return (

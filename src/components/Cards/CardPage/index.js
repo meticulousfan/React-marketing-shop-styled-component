@@ -89,7 +89,6 @@ export default function CardPage(props) {
                                 Adicionar ao carrinho
                             </button>
                         </div>
-                        ;
                     </Card>
                 );
             })}
