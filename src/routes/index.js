@@ -30,7 +30,7 @@ export default function MainRoutes() {
             />
             <Route path={'/feminina'} element={<Feminina />} isClosed={false} />
             <Route path={'/register/'} element={<Register />} />
-            <Route path={'/pagina-loja/'} element={<PaginaLoja />} />
+            <Route path={'/pagina-loja/:id'} element={<PaginaLoja />} />
             <Route
                 path={'/produto/:id'}
                 element={<Produto />}

@@ -1,45 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { MdStoreMallDirectory, MdStarBorder } from 'react-icons/md';
 import { TfiComments } from 'react-icons/tfi';
+import { useParams } from 'react-router-dom';
 
-import { Pagina } from './styled';
+import { Pagina, SectionProducts } from './styled';
 import axios from '../../services/axios';
+import CardPage from '../../components/Cards/CardPage';
 
 export default function PaginaLoja() {
-    const [dadosLoja, setDadosLoja] = useState([]);
-
-    const DadosLoja = async () => {
-        try {
-            const url = `/loja/${localStorage.getItem('loja_id')}`;
-            const res = await axios.get(url);
-            setDadosLoja(res.data);
-            console.log(dadosLoja.produtos);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+    const id = useParams('id');
+    const [loja, setloja] = useState({});
+    const [produtos, setProdutos] = useState([]);
 
     useEffect(() => {
-        DadosLoja();
-    }, []);
+        async function dadosLoja() {
+            const res = await axios.get(`/loja/${id.id}`);
+            setloja(res.data);
+            setProdutos(res.data.produtos);
+        }
+        dadosLoja();
+    }, [id]);
     return (
         <Pagina>
             <header>
-                {dadosLoja.url_imagem ? (
+                {loja.img_perfil_loja ? (
                     <img
-                        src={dadosLoja.url_imagem}
+                        src={loja.img_perfil_loja}
                         alt="foto de perfil da loja"
                     />
                 ) : (
                     <MdStoreMallDirectory size={100} />
                 )}
 
-                <h5>{dadosLoja.nome_fantasia}</h5>
+                <h5>{loja.nome_fantasia}</h5>
             </header>
-            <main>
-                <h5>Produtos vendidos pela loja:</h5>
-            </main>
-            <section>
+            <h5 className="text-center">Produtos vendidos pela loja:</h5>
+            <SectionProducts>
+                {produtos.map((item, index) => {
+                    return <CardPage key={index} item={item} />;
+                })}
+            </SectionProducts>
+            <article>
                 <div className="overflow-auto">
                     <h5>
                         <MdStarBorder /> Avaliações
@@ -51,7 +52,7 @@ export default function PaginaLoja() {
                         Comentários
                     </h5>
                 </div>
-            </section>
+            </article>
         </Pagina>
     );
 }

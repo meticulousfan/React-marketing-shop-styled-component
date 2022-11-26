@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { MdBackspace } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,12 +10,29 @@ import {
     calculateTotalSelector,
     itemsCartSelector,
 } from '../../store/modules/cache/cart';
+import axios from '../../services/axios';
 
 export default function Compras() {
     const dispatch = useDispatch();
 
     const items = useSelector(itemsCartSelector);
     const total = useSelector(calculateTotalSelector);
+    console.log(items.length);
+
+    async function handleSubmit() {
+        const res = await axios.post('/venda/cadastro', {
+            usuario_id: 1,
+        });
+
+        for (let i = 0; i < items.length; i++) {
+            axios.post('venda-produto/cadastro', {
+                produto_id: items[i].id,
+                venda_id: res.data.venda_id,
+            });
+            console.log(items[i]);
+        }
+        console.log(res.data);
+    }
 
     return (
         <>
@@ -37,7 +54,7 @@ export default function Compras() {
                 </Produtos>
                 <Info>
                     <div className="descricao">
-                        <h4>Total items: R$ </h4>
+                        <h4>Total items:</h4>
                         <h5>Endereço: "Avenida"</h5>
                         <h5>Frete:</h5>
                         <div>
@@ -52,7 +69,7 @@ export default function Compras() {
                     </div>
                     <div className="resumo">
                         <h2>Total: R$ {total}</h2>
-                        <button>Comprar</button>
+                        <button onClick={handleSubmit}>Comprar</button>
                     </div>
                 </Info>
             </Compra>

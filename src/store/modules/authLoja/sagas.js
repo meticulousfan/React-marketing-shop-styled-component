@@ -60,7 +60,7 @@ function* registerLojaRequest({ payload }) {
 }
 
 function persistRehydrate({ payload }) {
-    const token = get(payload, 'authLoja.token', '');
+    const token = get(payload, 'authLoja.token_de_acesso', '');
 
     if (!token) return;
 

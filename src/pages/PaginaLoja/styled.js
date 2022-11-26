@@ -3,7 +3,6 @@ import * as colors from '../../config/colors';
 
 export const Pagina = styled.div`
     width: 100%;
-    height: 89%;
     background: white;
     color: ${colors.primaryDarkColor};
     header {
@@ -15,23 +14,13 @@ export const Pagina = styled.div`
         border-bottom: 1px solid rgb(0, 0, 0, 0.2);
     }
 
-    main {
+    article {
         width: 100%;
-        height: 40%;
-        border-bottom: 1px solid rgb(0, 0, 0, 0.2);
-        h5 {
-            display: flex;
-            justify-content: space-around;
-        }
-    }
-
-    section {
-        width: 100%;
-        height: 40%;
-        display: flex;
         div {
-            width: 50%;
-            border-right: 1px solid rgb(0, 0, 0, 0.4);
+            width: 100%;
+            height: 200px;
+            border-top: 1px solid rgb(0, 0, 0, 0.4);
+            padding: 10px;
             h5 {
                 display: flex;
                 align-items: center;
@@ -41,4 +30,12 @@ export const Pagina = styled.div`
             }
         }
     }
+`;
+
+export const SectionProducts = styled.section`
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
 `;
