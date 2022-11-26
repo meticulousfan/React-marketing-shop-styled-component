@@ -26,8 +26,8 @@ export default function Compras() {
                     </Link>
                     {items.map((item, index) => {
                         return (
-                            <div>
-                                <div key={index}>
+                            <div key={index}>
+                                <div>
                                     <CardProduto item={item} />
                                 </div>
                                 <span>{item.qtd}</span>

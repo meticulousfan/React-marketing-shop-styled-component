@@ -18,8 +18,6 @@ export default function Carrinho() {
     const items = useSelector(itemsCartSelector);
     const total = useSelector(calculateTotalSelector);
 
-    const [subtotal, setSubtotal] = useState(0);
-
     return (
         <Container>
             {items.length === 0 ? (

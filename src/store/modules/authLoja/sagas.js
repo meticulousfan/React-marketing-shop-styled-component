@@ -12,8 +12,7 @@ function* LoginLojaRequest({ payload }) {
         yield put(actions.LoginLojaSucess({ ...response.data }));
 
         toast.success('Voçê logou com sucesso!');
-
-        axios.defaults.headers.Authorization = `Bearer ${response.data.token_de_acesso}`;
+        axios.defaults.headers.Authorization = `Bearer ${response.data[0]}`;
     } catch (e) {
         yield put(actions.LoginLojaFailure());
         toast.error('Usuário ou senha incorretos.');
