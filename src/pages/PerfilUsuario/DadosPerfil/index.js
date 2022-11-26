@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Dados } from './styled';
+import axios from '../../../services/axios';
 
 export default function DadosPerfil() {
+    const [nome, setNome] = useState([]);
+    const [sobrenome, setSobrenome] = useState([]);
+
+    const DadosUsuario = async () => {
+        try {
+            const url = `/usuario/${localStorage.getItem('usuario_id')}`;
+            const res = await axios.get(url);
+            console.log();
+        } catch (err) {
+            console.log(err);
+        }
+    };
     return (
         <Dados className="overflow-auto">
             <title>
