@@ -18,6 +18,7 @@ import Loading from '../../components/Loading';
 export default function Compras() {
     const dispatch = useDispatch();
 
+    const usuario = useSelector((state) => state.auth.usuario);
     const items = useSelector(itemsCartSelector);
     const total = useSelector(calculateTotalSelector);
 
@@ -26,9 +27,9 @@ export default function Compras() {
     async function handleSubmit() {
         setIsLoading(true);
         const res = await axios.post('/venda/cadastro', {
-            usuario_id: 2,
+            usuario_id: usuario.usuario_id,
         });
-        buyItems(res);
+        buyItems(res.data);
         setIsLoading(false);
     }
 

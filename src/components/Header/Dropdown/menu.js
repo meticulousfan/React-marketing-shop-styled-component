@@ -15,26 +15,26 @@ export default function MenuDrop() {
             <ul id="menu">
                 <li>
                     <div>
-                        <Link to="/perfil">
+                        <Link to="/perfil-usuario/dados-perfil">
                             <FaUserCircle size={70} />
                             <h3>Nome</h3>
                         </Link>
                     </div>
                 </li>
                 <li>
-                    <Link to="/perfil/minhas-compras">
+                    <Link to="/perfil-usuario/minhas-compras">
                         <FiShoppingBag size={24} />
                         Minhas Compras
                     </Link>
                 </li>
                 <li>
-                    <Link to="/ajuda">
+                    <Link to="/perfil-usuario/ajuda">
                         <FiHelpCircle size={24} />
                         Ajuda
                     </Link>
                 </li>
                 <li>
-                    <Link to="/configuracoes">
+                    <Link to="/perfil-usuario/configuracoes">
                         <MdSettings size={24} />
                         Configurações
                     </Link>

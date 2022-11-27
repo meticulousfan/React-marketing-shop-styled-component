@@ -2,22 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Dados } from './styled';
-import axios from '../../../services/axios';
 
 export default function DadosPerfil() {
     const usuario = useSelector((state) => state.auth.usuario);
-
-    const [Adresses, setAdreses] = useState([]);
-
-    useEffect(() => {
-        async function getAddress() {
-            const res = await axios.get(`/usuario-endereco/${usuario.id}`);
-            setAdreses(res);
-            console.log(res.data);
-        }
-
-        getAddress();
-    }, [usuario.id]);
 
     return (
         <Dados className="overflow-auto">
@@ -28,10 +15,25 @@ export default function DadosPerfil() {
                 <h5>
                     Nome: {usuario.nome} {usuario.sobrenome}
                 </h5>
+                <h5>CPF: {usuario.CPF ? usuario.CPF : 'XXX.XXX.XXX-XX'}</h5>
             </div>
             <div className="info">
                 <h5>Informações de contato:</h5>
+                {usuario.contatos.length > 0 ? (
+                    usuario.contatos.map((contato, index) => {
+                        <h1 key={index}>{contato}</h1>;
+                    })
+                ) : (
+                    <button>Adicionar contato</button>
+                )}
                 <h5>Informações de endereço:</h5>
+                {usuario.enderecos.length > 0 ? (
+                    usuario.enderecos.map((endereco, index) => {
+                        <h1 key={index}>{endereco}</h1>;
+                    })
+                ) : (
+                    <button>Adicionar endereco</button>
+                )}
             </div>
         </Dados>
     );
