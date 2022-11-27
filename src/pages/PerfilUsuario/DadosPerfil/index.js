@@ -26,12 +26,21 @@ export default function DadosPerfil() {
                     {usuario.contato_usuario_id ? (
                         <p>{usuario.contato_usuario_id}</p>
                     ) : (
-                        <button className="info">
-                            adicionar informações de contato
+                        <button className="btn btn-info">
+                            Adicionar contato
                         </button>
                     )}
                 </h5>
-                <h5>Informações de endereço:</h5>
+                <h5>
+                    Informações de endereço:
+                    {usuario.endereco_usuario_id ? (
+                        <p>{usuario.endereco_usuario_id}</p>
+                    ) : (
+                        <button className="btn btn-info">
+                            Adicionar endereço
+                        </button>
+                    )}
+                </h5>
             </div>
         </Dados>
     );
