@@ -1,16 +1,16 @@
 import React from 'react';
-import { Painel } from '../../../styles/GlobalStyles';
 import { MdOutlineDataSaverOff, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { FiShoppingBag, FiHelpCircle, FiLogOut } from 'react-icons/fi';
 import { BsGearWideConnected } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
-import { SideBar } from './styled';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import { Painel } from '../../../styles/GlobalStyles';
+import { SideBar } from './styled';
+
 export default function TopicosPerfil() {
     const usuario = useSelector((state) => state.auth.usuario);
-
     return (
         <Painel>
             <SideBar>
