@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Painel } from '../../../styles/GlobalStyles';
 import { MdOutlineDataSaverOff } from 'react-icons/md';
 import { FiShoppingBag, FiHelpCircle, FiLogOut } from 'react-icons/fi';
@@ -8,12 +9,13 @@ import { Link } from 'react-router-dom';
 import { MdStoreMallDirectory } from 'react-icons/md';
 
 export default function TopicosPerfilLoja() {
+    const loja = useSelector((state) => state.authLoja.loja);
     return (
         <Painel>
             <SideBar>
                 <div>
                     <MdStoreMallDirectory size={100} />
-                    <h4>Loja</h4>
+                    <h4>{loja.nome_fantasia}</h4>
                 </div>
                 <li>
                     <Link to="dados-loja">
