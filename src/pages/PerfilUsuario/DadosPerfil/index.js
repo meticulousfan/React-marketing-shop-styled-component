@@ -6,16 +6,17 @@ import { Dados } from './styled';
 export default function DadosPerfil() {
     const usuario = useSelector((state) => state.auth.usuario);
 
+    const [Adresses, setAdreses] = useState([]);
+
     return (
         <Dados className="overflow-auto">
             <title>
-                <h1>
-                    Bem-vindo {usuario.nome} {usuario.sobrenome}
-                </h1>
+                <h1>Bem-vindo {usuario.nome}</h1>
             </title>
             <div className="nome">
-                <h5>{usuario.nome}</h5>
-                <h5>{usuario.sobrenome}</h5>
+                <h5>
+                    Nome: {usuario.nome} {usuario.sobrenome}
+                </h5>
             </div>
             <div className="info">
                 <h5>
