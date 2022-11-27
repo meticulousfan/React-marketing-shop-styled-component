@@ -6,14 +6,17 @@ import { BsGearWideConnected } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
 import { SideBar } from './styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function TopicosPerfil() {
+    const usuario = useSelector((state) => state.auth.usuario);
+
     return (
         <Painel>
             <SideBar>
                 <div>
                     <BiUserCircle size={100} />
-                    <h4>Matheus</h4>
+                    <h4>{usuario.nome}</h4>
                 </div>
                 <li>
                     <Link to="dados-perfil">

@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import * as colors from '../../../config/colors';
 
 export const SideBar = styled.div`
-    height: 89vh;
     div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         width: 100%;
         padding: 40px;
         height: 40%;
         h4 {
+            display: flex;
             width: 100%;
-            justify-content: space-around;
-            margin: 20px;
+            justify-content: center;
         }
     }
     li {
