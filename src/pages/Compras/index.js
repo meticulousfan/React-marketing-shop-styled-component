@@ -29,6 +29,7 @@ export default function Compras() {
         const res = await axios.post('/venda/cadastro', {
             usuario_id: usuario.usuario_id,
         });
+        console.log(res.data.venda_id);
         buyItems(res.data);
         setIsLoading(false);
     }
@@ -40,7 +41,7 @@ export default function Compras() {
                 const response = await axios.post('venda-produto/cadastro', {
                     produto_id: items[i].id,
                     qtd_produtos: items[i].qtd,
-                    venda_id: res.data.venda_id,
+                    venda_id: res.venda_id,
                 });
                 if (response.status !== 200) return;
                 dispatch(removeCartItem(items[i].id));
