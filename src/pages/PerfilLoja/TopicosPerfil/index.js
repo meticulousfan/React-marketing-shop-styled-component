@@ -10,6 +10,7 @@ import { MdStoreMallDirectory } from 'react-icons/md';
 
 export default function TopicosPerfilLoja() {
     const loja = useSelector((state) => state.authLoja.loja);
+
     return (
         <Painel>
             <SideBar>
