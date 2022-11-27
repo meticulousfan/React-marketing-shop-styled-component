@@ -9,7 +9,9 @@ export default function DadosPerfil() {
     return (
         <Dados className="overflow-auto">
             <title>
-                <h1>Bem-vindo {usuario.nome}</h1>
+                <h1>
+                    Bem-vindo {usuario.nome} {usuario.sobrenome}
+                </h1>
             </title>
             <div className="nome">
                 <h5>
