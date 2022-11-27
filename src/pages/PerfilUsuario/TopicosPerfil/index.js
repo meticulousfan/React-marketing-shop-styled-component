@@ -13,7 +13,7 @@ export default function TopicosPerfil() {
             <SideBar>
                 <div>
                     <BiUserCircle size={100} />
-                    <h4>Nome</h4>
+                    <h4>Matheus</h4>
                 </div>
                 <li>
                     <Link to="dados-perfil">
