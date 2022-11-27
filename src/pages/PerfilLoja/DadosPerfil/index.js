@@ -6,7 +6,6 @@ import { Dados } from './styled';
 export default function DadosPerfilLoja() {
     const loja = useSelector((state) => state.authLoja.loja);
 
-    console.log(loja);
     return (
         <Dados className="overflow-auto">
             <title>
