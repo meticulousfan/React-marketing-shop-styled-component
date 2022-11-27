@@ -1,19 +1,22 @@
 import React from 'react';
-import { Painel } from '../../../styles/GlobalStyles';
 import { MdOutlineDataSaverOff, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { FiShoppingBag, FiHelpCircle, FiLogOut } from 'react-icons/fi';
 import { BsGearWideConnected } from 'react-icons/bs';
 import { BiUserCircle } from 'react-icons/bi';
-import { SideBar } from './styled';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { Painel } from '../../../styles/GlobalStyles';
+import { SideBar } from './styled';
 
 export default function TopicosPerfil() {
+    const usuario = useSelector((state) => state.auth.usuario);
     return (
         <Painel>
             <SideBar>
                 <div>
                     <BiUserCircle size={100} />
-                    <h4>Nome</h4>
+                    <h4>{usuario.nome}</h4>
                 </div>
                 <li>
                     <Link to="dados-perfil">

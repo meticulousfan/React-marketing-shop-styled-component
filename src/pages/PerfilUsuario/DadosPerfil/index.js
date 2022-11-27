@@ -1,32 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import { Dados } from './styled';
-import axios from '../../../services/axios';
 
 export default function DadosPerfil() {
-    const [nome, setNome] = useState([]);
-    const [sobrenome, setSobrenome] = useState([]);
+    const usuario = useSelector((state) => state.auth.usuario);
 
-    const DadosUsuario = async () => {
-        try {
-            const url = `/usuario/${localStorage.getItem('usuario_id')}`;
-            const res = await axios.get(url);
-            console.log();
-        } catch (err) {
-            console.log(err);
-        }
-    };
     return (
         <Dados className="overflow-auto">
             <title>
-                <h1>Bem-vindo (a)</h1>
+                <h1>
+                    Bem-vindo {usuario.nome} {usuario.sobrenome}
+                </h1>
             </title>
             <div className="nome">
-                <h5>Nome:</h5>
-                <h5>Sobrenome:</h5>
+                <h5>{usuario.nome}</h5>
+                <h5>{usuario.sobrenome}</h5>
             </div>
             <div className="info">
-                <h5>Informações de contato:</h5>
+                <h5>
+                    Informações de contato:
+                    {usuario.contato_usuario_id ? (
+                        <p>{usuario.contato_usuario_id}</p>
+                    ) : (
+                        <button className="info">
+                            adicionar informações de contato
+                        </button>
+                    )}
+                </h5>
                 <h5>Informações de endereço:</h5>
             </div>
         </Dados>
