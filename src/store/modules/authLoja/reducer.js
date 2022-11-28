@@ -23,38 +23,39 @@ export default function (state = initialState, action) {
         case types.LOGIN_LOJA_REQUEST: {
             const newState = { ...state };
             newState.isLoading = true;
+
             return newState;
         }
 
         case types.LOGIN_LOJA_FAILURE: {
             delete axios.defaults.headers.Authorization;
             const newState = { ...initialState };
+
             return newState;
         }
 
         case types.REGISTER_LOJA_CREATE_SUCESS: {
             const newState = { ...state };
+            console.log(newState);
+            newState.isLoggedIn = true;
+            newState.token_de_acesso = action.payload[0];
+            newState.loja = action.payload[1];
             newState.isLoading = false;
-            return newState;
-        }
 
-        case types.REGISTER_LOJA_UPDATE_SUCESS: {
-            const newState = { ...state };
-            newState.user.nome = action.payload.nome;
-            newState.user.email = action.payload.email;
-            newState.isLoading = false;
             return newState;
         }
 
         case types.REGISTER_LOJA_REQUEST: {
             const newState = { ...state };
             newState.isLoading = true;
+
             return newState;
         }
 
         case types.REGISTER_LOJA_FAILURE: {
             const newState = { ...state };
             newState.isLoading = false;
+
             return newState;
         }
 
