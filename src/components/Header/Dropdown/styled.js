@@ -11,10 +11,11 @@ export const Div = styled.div`
         height: 24px;
     }
 
-    #menu {
+    .menu {
         background: #fff;
         border-radius: 5px;
         box-shadow: 0px 0px 8px 0px #ff897d;
+        min-width: 230px;
         padding: 0;
         margin: 0;
         position: absolute;
@@ -54,7 +55,7 @@ export const Div = styled.div`
 
     li {
         transition: 300ms;
-        padding: 10px 10px 10px 20px;
+        padding: 10px 10px 10px 10px;
     }
 
     li:hover {

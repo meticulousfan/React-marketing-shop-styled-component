@@ -14,6 +14,7 @@ import { itemsFavoriteSelector } from '../../store/modules/cache/favorite';
 
 export default function Header() {
     const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+    const isLoggedInLoja = useSelector((state) => state.authLoja.isLoggedIn);
     const cartItems = useSelector(itemsCartSelector);
     const favoriteItems = useSelector(itemsFavoriteSelector);
 
@@ -37,7 +38,7 @@ export default function Header() {
                         <p>{cartItems.length}</p>
                         <MdOutlineAddShoppingCart size={24} />
                     </Link>
-                    {isLoggedIn ? (
+                    {isLoggedIn || isLoggedInLoja ? (
                         <NavDropdown size={24} />
                     ) : (
                         <Link to="/login">
