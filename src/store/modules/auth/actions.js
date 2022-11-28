@@ -21,13 +21,6 @@ export function LoginFailure(payload) {
     };
 }
 
-export function registerUpdateSucess(payload) {
-    return {
-        type: types.REGISTER_UPDATE_SUCESS,
-        payload,
-    };
-}
-
 export function registerCreateSucess(payload) {
     return {
         type: types.REGISTER_CREATE_SUCESS,

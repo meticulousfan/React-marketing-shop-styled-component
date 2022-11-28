@@ -15,9 +15,9 @@ export default function Register() {
     const isLoading = useSelector((state) => state.auth.isLoading);
 
     const [nome, setNome] = useState('');
+    const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setsenha] = useState('');
-    const [CPF, setCPF] = useState('');
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -27,6 +27,11 @@ export default function Register() {
             formErrors = true;
 
             toast.error('O campo nome é obrigatório.');
+        }
+        if (!sobrenome) {
+            formErrors = true;
+
+            toast.error('O campo CPF é obrigatório.');
         }
         if (!isEmail(email)) {
             formErrors = true;
@@ -38,15 +43,10 @@ export default function Register() {
 
             toast.error('O campo senha é obrigatório.');
         }
-        if (!CPF) {
-            formErrors = true;
-
-            toast.error('O campo CPF é obrigatório.');
-        }
 
         if (formErrors) return;
 
-        dispatch(actions.registerRequest({ nome, email, senha, CPF }));
+        dispatch(actions.registerRequest({ nome, sobrenome, email, senha }));
     }
 
     return (
@@ -66,6 +66,15 @@ export default function Register() {
                             placeholder="Digite seu nome"
                         />
                     </label>
+                    <label htmlFor="sobrenome">
+                        Sobrenome:
+                        <input
+                            type="text"
+                            value={sobrenome}
+                            onChange={(e) => setSobrenome(e.target.value)}
+                            placeholder="Digite seu nome"
+                        />
+                    </label>
                     <label htmlFor="email">
                         Email:
                         <input
@@ -82,15 +91,6 @@ export default function Register() {
                             value={senha}
                             onChange={(e) => setsenha(e.target.value)}
                             placeholder="Digite sua senha"
-                        />
-                    </label>
-                    <label htmlFor="CPF">
-                        CPF:
-                        <input
-                            type="text"
-                            value={CPF}
-                            onChange={(e) => setCPF(e.target.value)}
-                            placeholder="000.000.000-00"
                         />
                     </label>
 

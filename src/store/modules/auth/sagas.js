@@ -22,37 +22,14 @@ function* LoginRequest({ payload }) {
 }
 
 function* registerRequest({ payload }) {
-    const { nome, email, senha, CPF } = payload;
-
     try {
-        yield call(axios.post, '/usuario/cadastro', {
-            nome,
-            sobrenome: 'qualquer',
-            email,
-            senha,
-            CPF,
-        });
+        const response = yield call(axios.post, '/usuario/cadastro', payload);
+        yield put(actions.registerCreateSucess({ ...response.data }));
         toast.success('Usuario criado com sucesso.');
-        yield put(
-            actions.registerCreateSucess({ nome, sobrenome, email, senha, CPF })
-        );
     } catch (e) {
-        const errors = get(e, 'response.data.erros', []);
-        const status = get(e, 'response.status', 0);
-
-        if (status === 401) {
-            toast.error('Voçê precisa fazer login novamente.');
-            yield put(actions.LoginFailure());
-            return status;
-        }
-
-        if (errors.length > 0) {
-            errors.map((error) => toast.error('error'));
-        } else {
-            toast.error('Erro desconhecido');
-        }
-
+        console.log(e);
         yield put(actions.registerFailure());
+        return false;
     }
 }
 
