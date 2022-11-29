@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
+import ModalAddress from '../../../components/Modals/ModalAddress';
+import ModalContact from '../../../components/Modals/ModalContact';
 import { Dados } from './styled';
 
 export default function DadosPerfilLoja() {
