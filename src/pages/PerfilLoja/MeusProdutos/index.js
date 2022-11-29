@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import CardProduto from '../../../components/Cards/CardProduto';
+import ModalProduct from '../../../components/Modals/ModalProductRegister';
 import { Produtos } from './styled';
 
 export default function MeusProdutos() {
@@ -27,7 +28,7 @@ export default function MeusProdutos() {
                 <h1>Meus Produtos</h1>
             </title>
             <div className="d-flex">
-                <button className="bg-success">+</button>
+                <ModalProduct id={loja.loja_id} route={'/produto/cadastro'} />
                 <h3>Adicionar novo produto</h3>
             </div>
             <div>
