@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { Dados } from './styled';
+import ModalAddress from '../../../components/Modals/ModalAddress';
+import ModalContact from '../../../components/Modals/ModalContact';
 
 export default function DadosPerfil() {
     const usuario = useSelector((state) => state.auth.usuario);
@@ -26,7 +28,10 @@ export default function DadosPerfil() {
                         <h1 key={index}>{contato}</h1>;
                     })
                 ) : (
-                    <button>Adicionar contato</button>
+                    <ModalContact
+                        id={usuario.usuario_id}
+                        route={'/usuario-contato/cadastro'}
+                    />
                 )}
                 <h5>Informações de endereço:</h5>
                 {usuario.enderecos.length > 0 ? (
@@ -34,7 +39,10 @@ export default function DadosPerfil() {
                         <h1 key={index}>{endereco}</h1>;
                     })
                 ) : (
-                    <button>Adicionar endereco</button>
+                    <ModalAddress
+                        id={usuario.usuario_id}
+                        route={'/usuario-endereco/cadastro'}
+                    />
                 )}
             </div>
         </Dados>

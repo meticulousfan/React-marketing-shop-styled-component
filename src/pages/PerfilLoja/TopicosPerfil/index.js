@@ -15,7 +15,14 @@ export default function TopicosPerfilLoja() {
         <Painel>
             <SideBar>
                 <div>
-                    <MdStoreMallDirectory size={100} />
+                    {loja.img_perfil_loja ? (
+                        <img
+                            src={loja.img_perfil_loja}
+                            alt="foto de perfil da loja"
+                        />
+                    ) : (
+                        <MdStoreMallDirectory size={100} />
+                    )}
                     <h4>{loja.nome_fantasia}</h4>
                 </div>
                 <li>

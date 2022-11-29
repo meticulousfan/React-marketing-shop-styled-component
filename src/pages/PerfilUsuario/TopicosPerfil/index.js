@@ -2,20 +2,28 @@ import React from 'react';
 import { MdOutlineDataSaverOff, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { FiShoppingBag, FiHelpCircle, FiLogOut } from 'react-icons/fi';
 import { BsGearWideConnected } from 'react-icons/bs';
-import { BiUserCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { FaUserCircle } from 'react-icons/fa';
 
 import { Painel } from '../../../styles/GlobalStyles';
 import { SideBar } from './styled';
 
 export default function TopicosPerfil() {
     const usuario = useSelector((state) => state.auth.usuario);
+
     return (
         <Painel>
             <SideBar>
                 <div>
-                    <BiUserCircle size={100} />
+                    {usuario.img_perfil_usuario ? (
+                        <img
+                            src={usuario.img_perfil_usuario}
+                            alt="foto de perfil do usuário"
+                        />
+                    ) : (
+                        <FaUserCircle size={100} />
+                    )}
                     <h4>{usuario.nome}</h4>
                 </div>
                 <li>
