@@ -14,7 +14,7 @@ export default function RegisterLoja() {
 
     const isLoading = useSelector((state) => state.authLoja.isLoading);
 
-    const [nomeFantasia, setNomeFantasia] = useState('');
+    const [nome_fantasia, setNome_fantasia] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [CNPJ, setCNPJ] = useState('');
@@ -23,7 +23,7 @@ export default function RegisterLoja() {
         e.preventDefault();
         let formErrors = false;
 
-        if (!nomeFantasia) {
+        if (!nome_fantasia) {
             formErrors = true;
 
             toast.error('O campo nome fantasia é obrigatório.');
@@ -47,7 +47,7 @@ export default function RegisterLoja() {
         if (formErrors) return;
 
         dispatch(
-            actions.registerLojaRequest({ nomeFantasia, email, senha, CNPJ })
+            actions.registerLojaRequest({ nome_fantasia, email, senha, CNPJ })
         );
     }
 
@@ -63,8 +63,8 @@ export default function RegisterLoja() {
                         Nome Fantasia:
                         <input
                             type="text"
-                            value={nomeFantasia}
-                            onChange={(e) => setNomeFantasia(e.target.value)}
+                            value={nome_fantasia}
+                            onChange={(e) => setNome_fantasia(e.target.value)}
                             placeholder="Digite o nome da sua loja"
                         />
                     </label>

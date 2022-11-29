@@ -20,41 +20,13 @@ function* LoginLojaRequest({ payload }) {
 }
 
 function* registerLojaRequest({ payload }) {
-    const { nome_fantasia, email, senha, CNPJ } = payload;
-
+    console.log(payload);
     try {
-        yield call(axios.post, '/loja/cadastro', {
-            nome_fantasia,
-            email,
-            senha,
-            CNPJ,
-        });
+        const response = yield call(axios.post, '/loja/cadastro', payload);
+        console.log(response.data);
+        yield put(actions.registerLojaCreateSucess({ ...response.data }));
         toast.success('Loja criada com sucesso.');
-        yield put(
-            actions.registerLojaCreateSucess({
-                nome_fantasia,
-                email,
-                senha,
-                CNPJ,
-            })
-        );
     } catch (e) {
-        const errors = get(e, 'response.data.erros', []);
-        const status = get(e, 'response.status', 0);
-
-        if (status === 401) {
-            toast.error('Voçê precisa azer login novamente.');
-            yield put(actions.LoginLojaFailure());
-        }
-
-        console.log(errors);
-
-        if (errors.length > 0) {
-            errors.map((error) => toast.error(error));
-        } else {
-            toast.error('Erro desconhecido');
-        }
-
         yield put(actions.registerLojaFailure());
     }
 }

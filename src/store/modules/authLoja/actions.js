@@ -21,13 +21,6 @@ export function LoginLojaFailure(payload) {
     };
 }
 
-export function registerLojaUpdateSucess(payload) {
-    return {
-        type: types.REGISTER_LOJA_UPDATE_SUCESS,
-        payload,
-    };
-}
-
 export function registerLojaCreateSucess(payload) {
     return {
         type: types.REGISTER_LOJA_CREATE_SUCESS,

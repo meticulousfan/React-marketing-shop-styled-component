@@ -87,7 +87,7 @@ export default function Register() {
                     <label htmlFor="senha">
                         Senha:
                         <input
-                            type="senha"
+                            type="password"
                             value={senha}
                             onChange={(e) => setsenha(e.target.value)}
                             placeholder="Digite sua senha"
