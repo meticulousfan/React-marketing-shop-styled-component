@@ -17,5 +17,12 @@ export const Produtos = styled.div`
     }
     div {
         margin-top: 10px;
+        h3 {
+            margin-left: 20px;
+            align-items: center;
+        }
+        button {
+            margin-left: 20px;
+        }
     }
 `;

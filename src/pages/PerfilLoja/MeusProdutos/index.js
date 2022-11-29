@@ -26,6 +26,10 @@ export default function MeusProdutos() {
             <title>
                 <h1>Meus Produtos</h1>
             </title>
+            <div className="d-flex">
+                <button className="bg-success">+</button>
+                <h3>Adicionar novo produto</h3>
+            </div>
             <div>
                 {loja.produtos.map((produto, index) => {
                     const item = handleFormat(produto);
