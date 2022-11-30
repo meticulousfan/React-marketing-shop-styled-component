@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import * as colors from '../../../config/colors';
 
 export const Compras = styled.div`
     width: 80vw;
     height: 89vh;
-    color: #a6aaad;
+    background: #fff;
     display: flex;
     flex-direction: column;
 

@@ -1,51 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import CardProduto from '../../../components/Cards/CardProduto';
-import axios from '../../../services/axios';
-import { Compras } from './styled';
+import { Compras, ContainerCardBuy } from './styled';
+import Loading from '../../../components/Loading';
+import CardBuy from '../../../components/Cards/CardBuy';
 
 export default function MinhasCompras() {
     const usuario = useSelector((state) => state.auth.usuario);
-
-    const [item, setItem] = useState({});
-
-    async function getProduct(id) {
-        const produto = await (await axios.get(`/produto/${id}`)).data;
-        const item = {
-            id: produto.produto_id,
-            imagens: produto.imagens_produto,
-            nome: produto.nome,
-            descricao: produto.descricao,
-            qtd: produto.qtd_estoque,
-            cores: produto.cor_produto,
-            tamanho: produto.tamanho_produto,
-            valor: produto.valor,
-        };
-        setItem(item);
-    }
+    const isLoading = useSelector((state) => state.auth.isLoading);
 
     return (
         <Compras className="overflow-auto">
+            <Loading isLoading={isLoading} />
             <title>
                 <h1>Minhas Compras</h1>
             </title>
-            <div>
+            <section>
                 {usuario.compras.length > 0 ? (
-                    usuario.compras.map((vendas, index) => {
+                    usuario.compras.map((venda, index) => {
                         return (
-                            <div
+                            <CardBuy
                                 key={index}
-                                className="h-25 bg-light d-flex justify-content-between"
-                            >
-                                {vendas.produtos.map((produto, index) => {
-                                    getProduct(produto.produto_id);
-                                    return (
-                                        <CardProduto key={index} item={item} />
-                                    );
-                                })}
-                            </div>
+                                id={usuario.usuario_id}
+                                venda={venda}
+                            />
                         );
                     })
                 ) : (
@@ -58,7 +37,7 @@ export default function MinhasCompras() {
                         </Link>
                     </div>
                 )}
-            </div>
+            </section>
         </Compras>
     );
 }
