@@ -23,10 +23,12 @@ export default function DadosPerfilLoja() {
                         <h1 key={index}>{contato}</h1>;
                     })
                 ) : (
-                    <ModalContact
-                        id={loja.loja_id}
-                        route={'/loja-contato/cadastro'}
-                    />
+                    <div className="d-flex justify-content-end m-2">
+                        <ModalContact
+                            id={loja.loja_id}
+                            route={'/loja-contato/cadastro'}
+                        />
+                    </div>
                 )}
                 <h5>Informações de endereço:</h5>
                 {loja.enderecos.length > 0 ? (
@@ -34,10 +36,12 @@ export default function DadosPerfilLoja() {
                         <h1 key={index}>{endereco}</h1>;
                     })
                 ) : (
-                    <ModalAddress
-                        id={loja.loja_id}
-                        route={'/usuario-endereco/cadastro'}
-                    />
+                    <div className="d-flex justify-content-end m-2">
+                        <ModalAddress
+                            id={loja.loja_id}
+                            route={'/usuario-endereco/cadastro'}
+                        />
+                    </div>
                 )}
             </div>
         </Dados>

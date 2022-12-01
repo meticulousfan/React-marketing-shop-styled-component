@@ -52,7 +52,7 @@ export default createGlobalStyle`
 
 export const Container = styled.section`
     width: 100%;
-    height: auto;
+    min-height: 89vh;
     background: #fff;
     padding: 30px;
 `;
@@ -80,6 +80,6 @@ export const Painel = styled.div`
     width: 20%;
     height: 89vh;
     color: ${colors.primaryLightColor};
-    background: rgb(0, 0, 0, 0.5);
+    background: #f75555;
     list-style: none;
 `;

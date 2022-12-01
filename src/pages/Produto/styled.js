@@ -59,6 +59,13 @@ export const Info = styled.div`
     width: 55%;
     padding: 20px;
 
+    img {
+        width: 35px;
+        heigth: 35px;
+        border-radius: 50%;
+        margin: 10px;
+    }
+
     .descricao{
         padding-bottom: 10px;
 

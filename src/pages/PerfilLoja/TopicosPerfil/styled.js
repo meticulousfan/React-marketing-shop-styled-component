@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import * as colors from '../../../config/colors';
 
 export const SideBar = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+
     div {
         display: flex;
         flex-direction: column;
@@ -9,6 +14,13 @@ export const SideBar = styled.div`
         align-items: center;
         width: 100%;
         height: 40%;
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+
         h4 {
             display: flex;
             justify-content: center;

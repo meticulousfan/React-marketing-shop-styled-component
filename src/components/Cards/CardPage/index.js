@@ -55,9 +55,9 @@ export default function CardPage(props) {
                 <AiOutlineHeart size={28} onClick={(e) => handleFavorite()} />
             </div>
             <div className="dadosProduto">
-                <Link to={`produto/${produto.produto_id}`}>
+                <Link to={`/produto/${produto.produto_id}`}>
                     <h4>{produto.nome}</h4>
-                    <h5>{`R$: ${produto.valor}`}</h5>
+                    <h5>{`R$: ${produto.valor},00`}</h5>
                 </Link>
                 <button onClick={(e) => handleCart()}>
                     Adicionar ao carrinho

@@ -3,9 +3,10 @@ import styled from 'styled-components';
 export const Info = styled.div`
     width: 80vw;
     height: 89vh;
-    color: #a6aaad;
+    color: black;
     display: flex;
     flex-direction: column;
+    background: #fff;
 
     title {
         display: flex;

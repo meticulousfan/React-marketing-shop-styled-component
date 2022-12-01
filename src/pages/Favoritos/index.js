@@ -19,7 +19,7 @@ export default function Favoritos() {
     return (
         <Container>
             {items.length === 0 ? (
-                <div>
+                <div className="d-flex flex-column align-items-center">
                     <h1>Você não possui nenhum produto como favoritos</h1>
                     <Link to={'/'}>
                         <button className="btn btn-primary">
