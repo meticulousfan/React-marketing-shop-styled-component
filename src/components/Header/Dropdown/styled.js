@@ -26,6 +26,11 @@ export const Div = styled.div`
         div {
             padding-top: 10px;
 
+            img {
+                height: 120px;
+                border-radius: 50%;
+            }
+
             a {
                 margin: 0;
             }

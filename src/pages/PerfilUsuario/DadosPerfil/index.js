@@ -28,10 +28,12 @@ export default function DadosPerfil() {
                         <h1 key={index}>{contato}</h1>;
                     })
                 ) : (
-                    <ModalContact
-                        id={usuario.usuario_id}
-                        route={'/usuario-contato/cadastro'}
-                    />
+                    <div className="d-flex justify-content-end m-2">
+                        <ModalContact
+                            id={usuario.usuario_id}
+                            route={'/usuario-contato/cadastro'}
+                        />
+                    </div>
                 )}
                 <h5>Informações de endereço:</h5>
                 {usuario.enderecos.length > 0 ? (
@@ -39,10 +41,12 @@ export default function DadosPerfil() {
                         <h1 key={index}>{endereco}</h1>;
                     })
                 ) : (
-                    <ModalAddress
-                        id={usuario.usuario_id}
-                        route={'/usuario-endereco/cadastro'}
-                    />
+                    <div className="d-flex justify-content-end m-2">
+                        <ModalAddress
+                            id={usuario.usuario_id}
+                            route={'/usuario-endereco/cadastro'}
+                        />
+                    </div>
                 )}
             </div>
         </Dados>

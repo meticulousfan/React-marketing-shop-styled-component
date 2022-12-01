@@ -23,7 +23,7 @@ export default function CardProduto(props) {
                 <div className="info">
                     <h4>{item.nome}</h4>
                     <p>{item.descricao}</p>
-                    <h3>{item.valor}</h3>
+                    <h3>R$: {item.valor},00</h3>
                 </div>
             </div>
         </ContainerProduto>

@@ -21,7 +21,7 @@ export default function Carrinho() {
     return (
         <Container>
             {items.length === 0 ? (
-                <div>
+                <div className="d-flex flex-column align-items-center">
                     <h1>Você não possui nenhum produto no carrinho</h1>
                     <Link to={'/'}>
                         <button className="btn btn-primary">
@@ -57,7 +57,7 @@ export default function Carrinho() {
                                             </h5>
                                             <h4 className="d-flex">
                                                 Subtotal R$:
-                                                {item.qtd * item.valor}
+                                                {item.qtd * item.valor},00
                                             </h4>
                                         </Subtotal>
                                     </div>
@@ -72,7 +72,7 @@ export default function Carrinho() {
                             </Link>
                         </div>
                         <div className="total">
-                            <h4>Total: {total}</h4>
+                            <h4>Total R$:{total},00</h4>
                         </div>
                     </Compras>
                 </div>

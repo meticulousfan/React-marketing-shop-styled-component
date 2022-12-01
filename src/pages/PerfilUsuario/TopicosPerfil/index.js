@@ -20,9 +20,10 @@ export default function TopicosPerfil() {
                         <img
                             src={usuario.img_perfil_usuario}
                             alt="foto de perfil do usuário"
+                            className="m-3"
                         />
                     ) : (
-                        <FaUserCircle size={100} />
+                        <FaUserCircle size={150} className="m-3" />
                     )}
                     <h4>{usuario.nome}</h4>
                 </div>

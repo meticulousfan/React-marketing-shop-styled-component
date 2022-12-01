@@ -5,6 +5,7 @@ export const Pagina = styled.div`
     width: 100%;
     background: white;
     color: ${colors.primaryDarkColor};
+
     header {
         width: 100%;
         height: 20%;
@@ -12,6 +13,13 @@ export const Pagina = styled.div`
         flex-direction: column;
         align-items: center;
         border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 15px;
+        }
     }
 
     article {

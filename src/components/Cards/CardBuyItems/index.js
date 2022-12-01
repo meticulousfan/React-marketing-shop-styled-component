@@ -10,8 +10,6 @@ import { ContainerCard } from './styled';
 export default function CardBuyItems(props) {
     const prod = props.produto;
 
-    // console.log(prod);
-
     const [item, setItem] = useState({});
 
     useEffect(() => {
@@ -21,13 +19,14 @@ export default function CardBuyItems(props) {
             ).data;
             const item = {
                 id: produto.produto_id,
-                imagem: produto.imagens_produto[0],
+                imagem: produto.imagens_produto[0].url_imagem,
                 nome: produto.nome,
                 descricao: produto.descricao,
                 valor: produto.valor,
                 qtd: prod.qtd_produtos,
                 total: prod.total,
             };
+            console.log(item.imagem);
 
             setItem(item);
         }
@@ -51,7 +50,8 @@ export default function CardBuyItems(props) {
                     <div className="d-flex justify-content-between align-item-center">
                         <h6 className="me-5">qtd: {item.qtd}</h6>
                         <h5>
-                            <strong>R$: {item.total}</strong>
+                            <strong>R$: 190,00</strong>
+                            {/* <strong>R$: {item.total}</strong> */}
                         </h5>
                     </div>
                     <Link to={`/produto/${item.id}`}>

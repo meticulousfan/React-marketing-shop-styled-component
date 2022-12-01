@@ -32,9 +32,9 @@ export default function PaginaLoja() {
                     <MdStoreMallDirectory size={100} />
                 )}
 
-                <h5>{loja.nome_fantasia}</h5>
+                <h3 className="text-secondary">{loja.nome_fantasia}</h3>
             </header>
-            <h5 className="text-center">Produtos vendidos pela loja:</h5>
+            <h5 className="m-4">Produtos vendidos pela loja:</h5>
             <SectionProducts>
                 {produtos.map((item, index) => {
                     return <CardPage key={index} item={item} />;
