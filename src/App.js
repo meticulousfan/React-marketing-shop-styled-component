@@ -18,7 +18,7 @@ function App() {
                 <MainRoutes />
                 <GlobalStyles />
                 <ToastContainer autoClose={3000} className="toast-container" />
-                {/* <Footer /> */}
+                <Footer />
             </PersistGate>
         </Provider>
     );
