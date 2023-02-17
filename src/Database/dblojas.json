@@ -1,0 +1,58 @@
+{
+    "Lojas":[
+    {
+       "img_perfil_loja":"",
+        "nome_fantasia":"Deluxe Store",
+        "email":"deluxe.store@gmail.com",
+        "senha":"",
+        "CNPJ":"44.297.401/000-1-22",
+        "contato":{
+            "telefone":"(11)991565-3035",
+            "telefone_2":"(11)25859-4141"
+        },
+        "endereco":{
+            "CEP":"22544-552",
+            "cidade":"Barueri",
+            "bairro":"São Luis",
+            "logradouro":"Av. Santa Lucia",
+            "numero":"400"
+        }
+    },
+    {
+       "img_perfil_loja":"",
+        "nome_fantasia":"Lojas Helal",
+        "email":"lojashelal@gmail.com",
+        "senha":"",
+        "CNPJ":"71.792.141/000-1-48",
+        "contato":{
+            "telefone":"(21)47569-3337",
+            "telefone_2":"(21)3859-4021"
+        },
+        "endereco":{
+            "CEP":"52894-052",
+            "cidade":"Rio de Janeiro",
+            "bairro":"Laranjeiras",
+            "logradouro":"Av. Roman Kulusevski",
+            "numero":"30"
+        }
+    },
+    {
+       "img_perfil_loja":"",
+        "nome_fantasia":"Lojas Dumfries",
+        "email":"dumfries@gmail.com",
+        "senha":"",
+        "CNPJ":"21.498.246/000-2-00",
+        "contato":{
+            "telefone":"(51)7556-2045",
+            "telefone_2":"(51)4450-5889"
+        },
+        "endereco":{
+            "CEP":"30558-256",
+            "cidade":"Porto Alegre",
+            "bairro":"Jardim Europa",
+            "logradouro":"Av. Russia",
+            "numero":"855"
+        }
+    }
+]
+}
