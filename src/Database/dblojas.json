@@ -8,7 +8,9 @@
         "CNPJ":"44.297.401/000-1-22",
         "contato":{
             "telefone":"(11)991565-3035",
-            "telefone_2":"(11)25859-4141"
+            "telefone_2":"(11)25859-4141",
+            "instagram":"Deluxe Store",
+            "facebook":"Deluxe Store"
         },
         "endereco":{
             "CEP":"22544-552",
@@ -26,7 +28,9 @@
         "CNPJ":"71.792.141/000-1-48",
         "contato":{
             "telefone":"(21)47569-3337",
-            "telefone_2":"(21)3859-4021"
+            "telefone_2":"(21)3859-4021",
+            "instagram":"Lojas Helal",
+            "facebook":"Lojas Helal"
         },
         "endereco":{
             "CEP":"52894-052",
@@ -44,13 +48,15 @@
         "CNPJ":"21.498.246/000-2-00",
         "contato":{
             "telefone":"(51)7556-2045",
-            "telefone_2":"(51)4450-5889"
+            "telefone_2":"(51)4450-5889",
+            "instagram":"Lojas Dumfries",
+            "facebook":"Lojas Dumfries"
         },
         "endereco":{
             "CEP":"30558-256",
             "cidade":"Porto Alegre",
-            "bairro":"Jardim Europa",
-            "logradouro":"Av. Russia",
+            "bairro":"Restinga",
+            "logradouro":"Av. Paulo de Sousa",
             "numero":"855"
         }
     }
