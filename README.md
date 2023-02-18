@@ -1,2 +1,2 @@
-# OnlineShop
- Aplicação front-end desenvolido em React
+# Marketing shop
+Marketing shop built with react, styled components
